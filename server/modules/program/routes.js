@@ -1,0 +1,30 @@
+const express = require('express')
+const router = express.Router()
+const ProgramController = require('./controller')
+const LeadMentorController = require('../lead-mentor/controller')
+const TeamController = require('../team/controller')
+const MentorApplicantController = require('../mentor-applicant/controller')
+const MenteeApplicantController = require('../mentee-applicant/controller')
+const PrizeController = require('../prize/controller')
+const catchAsync = require('../../utils/catchAsync')
+const { requireAuth } = require('../../passport')
+const { checkProgram, checkMentorApplicant, checkMenteeApplicant, checkPrize, isLeadMentorAccount, isLeadMentor, isMentorAccount, isMenteeAccount } = require('../../middleware')
+
+router.get('/', catchAsync(ProgramController.getAllPrograms))
+router.get('/:progKey', checkProgram, catchAsync(ProgramController.showProgram))
+router.get('/:progKey/teams', checkProgram, catchAsync(TeamController.getTeamsByProgram))
+router.get('/:progKey/mentor-applicants', requireAuth, checkProgram, isLeadMentor, catchAsync(MentorApplicantController.getApplicantsByProgram))
+router.get('/:progKey/mentors', requireAuth, checkProgram, isLeadMentor, catchAsync(MentorApplicantController.getMentorsByProgram))
+router.get('/:progKey/mentee-applicants', requireAuth, checkProgram, isLeadMentor, catchAsync(MenteeApplicantController.getApplicantsByProgram))
+
+router.post('/:progKey/lead-mentors/claim', requireAuth, isLeadMentorAccount, checkProgram, catchAsync(LeadMentorController.claim))
+router.post('/:progKey/mentors/apply', requireAuth, isMentorAccount, checkProgram, catchAsync(MentorApplicantController.apply))
+router.post('/:progKey/mentees/apply', requireAuth, isMenteeAccount, checkProgram, catchAsync(MenteeApplicantController.apply))
+router.post('/:progKey/teams', requireAuth, checkProgram, isLeadMentor, catchAsync(TeamController.createTeam))
+router.post('/:progKey/prizes', requireAuth, checkProgram, isLeadMentor, catchAsync(PrizeController.createPrize))
+
+router.put('/:progKey/mentors/accept/:userId', requireAuth, checkProgram, isLeadMentor, checkMentorApplicant, catchAsync(MentorApplicantController.accept))
+router.put('/:progKey/mentees/accept/:userId', requireAuth, checkProgram, isLeadMentor, checkMenteeApplicant, catchAsync(MenteeApplicantController.accept))
+router.put('/:progKey/prizes/:prizeId', requireAuth, checkProgram, isLeadMentor, checkPrize, catchAsync(PrizeController.editPrize))
+
+module.exports = router

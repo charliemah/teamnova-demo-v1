@@ -1,0 +1,31 @@
+const express = require('express')
+const router = express.Router()
+const TeamController = require('../team/controller')
+const MentorRoleController = require('../mentor-role/controller')
+const MenteeRoleController = require('../mentee-role/controller')
+const SprintController = require('../sprint/controller')
+const StoryController = require('../story/controller')
+const TaskController = require('../task/controller')
+const catchAsync = require('../../utils/catchAsync')
+const { requireAuth } = require('../../passport')
+const { checkTeam, checkSprint, checkAvailableMentor, checkOpenRole, checkAvailableMentee, checkStory, checkTask, isTeamOwner, isMentorDeveloper, isMenteeDeveloper, isStoryReviewer, isTaskOwner } = require('../../middleware')
+
+router.get('/:teamKey/mentors', checkTeam, catchAsync(MentorRoleController.getMentorsByTeam))
+router.get('/:teamKey/roles/open', checkTeam, catchAsync(MenteeRoleController.getOpenRolesByTeam))
+router.get('/:teamKey/mentees', checkTeam, catchAsync(MenteeRoleController.getMenteesByTeam))
+router.get('/:teamKey/sprints', checkTeam, catchAsync(SprintController.getSprintsByTeam))
+
+router.post('/:teamKey/sprints', requireAuth, checkTeam, isTeamOwner, catchAsync(SprintController.createSprint))
+router.post('/:teamKey/mentors/:userId', requireAuth, checkTeam, isTeamOwner, checkAvailableMentor, catchAsync(MentorRoleController.createRole))
+router.post('/:teamKey/mentees', requireAuth, checkTeam, isTeamOwner, catchAsync(MenteeRoleController.createOpenRole))
+router.post('/:teamKey/mentees/:roleNumber/:userId', requireAuth, checkTeam, isTeamOwner, checkOpenRole, checkAvailableMentee, catchAsync(MenteeRoleController.match))
+router.post('/:teamKey/sprints/:sprintNumber/stories', requireAuth, checkTeam, isMentorDeveloper, checkSprint, catchAsync(StoryController.createStory))
+router.post('/:teamKey/sprints/:sprintNumber/tasks', requireAuth, checkTeam, isMenteeDeveloper, checkSprint, catchAsync(TaskController.createTask))
+
+router.put('/:teamKey', requireAuth, checkTeam, isTeamOwner, catchAsync(TeamController.editTeam))
+router.put('/:teamKey/mentees/:roleNumber', requireAuth, checkTeam, isTeamOwner, checkOpenRole, catchAsync(MenteeRoleController.editOpenRole))
+router.put('/:teamKey/sprints/:sprintNumber', requireAuth, checkTeam, isTeamOwner, checkSprint, catchAsync(SprintController.editSprint))
+router.put('/:teamKey/sprints/:sprintNumber/stories/:storyNumber', requireAuth, checkTeam, isMentorDeveloper, checkSprint, checkStory, isStoryReviewer, catchAsync(StoryController.editStory))
+router.put('/:teamKey/sprints/:sprintNumber/tasks/:taskNumber', requireAuth, checkTeam, isMenteeDeveloper, checkSprint, checkTask, isTaskOwner, catchAsync(TaskController.editTask))
+
+module.exports = router
