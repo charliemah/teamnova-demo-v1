@@ -15,7 +15,10 @@ const ProgramCard = ({ program }) => {
     <Grid item xs={12} md={6}>
       <CardActionArea component={RouterLink} to={`/programs/${program.key}`}>
         <Card
-          sx={{ display: 'flex' }}
+          sx={{ 
+            display: 'flex',
+            bgcolor: '#90caf9',
+          }}
         >
           <CardContent sx={{ flex: 1 }}>
             <Stack
@@ -24,10 +27,10 @@ const ProgramCard = ({ program }) => {
               spacing={2}
               justifyContent='space-evenly'
             >
-              <Typography component='h2' variant='h5'>
+              <Typography component='h2' variant='h6'>
                 {program.name.toUpperCase()}
               </Typography>
-              <Typography variant='h6' color='text.secondary'>
+              <Typography variant='subtitle1' color='text.secondary'>
                 {format(parseISO(program.startDate), 'MMM d, yyyy')} - {format(parseISO(program.endDate), 'MMM d, yyyy')}
               </Typography>
               <Typography variant='subtitle1'>

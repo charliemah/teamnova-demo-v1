@@ -1,93 +1,103 @@
-import { useEffect } from 'react'
-import { Link as RouterLink } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
+
 import Paper from '@mui/material/Paper'
-import Typography from '@mui/material/Typography'
-import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
-import Button from '@mui/material/Button'
+import Typography from '@mui/material/Typography'
+import Grid from '@mui/material/Grid'
+import Container from '@mui/material/Container'
 
-import { randomCoverImage, exampleProgKey, exampleTeamKey } from '../../config'
+import ProgramsGrid from '../../components/program/ProgramsGrid'
+
+const title = 'Teamnova: Make Mentorship in Open Source Accessible for More Students'
+const description = 'Learn from the world\'s best mentors by working on real-world projects. Join an Open Source Mentorship Program today!'
+const note = '* This is a demonstration of what\'s possible with Teamnova-empowered Open Source Mentorship Programs.'
 
 const HomePage = () => {
 
-  const dispatch = useDispatch()
+  const assetsPath = require.context('../../assets/images', false)
+  const backgroundImageUrl = assetsPath('./default_program_thumbnail.jpg')
 
-  useEffect(() => {
-    dispatch.teams.asyncFetchTeamsByProgram(exampleProgKey)
-  }, [exampleProgKey])
+  const programList = useSelector(state => state.programs.programList)
 
   return (
-    <Paper
-      sx={{
-        position: 'relative',
-        backgroundColor: 'grey.800',
-        color: '#fff',
-        mb: 4,
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
-        backgroundImage: `url(${randomCoverImage})`,
-      }}
-    >
-      {<img style={{ display: 'none' }} src={randomCoverImage} alt='randomCoverImage' />}
-      <Box
+    <main>
+      <Paper
         sx={{
-          position: 'absolute',
-          top: 0,
-          bottom: 0,
-          right: 0,
-          left: 0,
-          backgroundColor: 'rgba(0,0,0,.3)',
+          position: 'relative',
+          backgroundColor: 'grey.800',
+          color: '#fff',
+          mt: 2,
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          backgroundImage: `url(${backgroundImageUrl})`,
         }}
-      />
-      <Grid container>
-        <Grid item>
-          <Box
-            sx={{
-              position: 'relative',
-              px: { xs: 3, md: 6, lg: 12 },
-              pt: { xs: 12, md: 25 },
-              pb: { xs: 10, md: 20 },
-            }}
-          >
-            <Stack
-              direction='column'
-              alignItems='center'
-              spacing={4}
-              justifyContent='space-evenly'
+      >
+        {<img style={{ display: 'none' }} src={backgroundImageUrl}/>}
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 0,
+            bottom: 0,
+            right: 0,
+            left: 0,
+            backgroundColor: 'rgba(0,0,0,.3)',
+          }}
+        />
+        <Grid container>
+          <Grid item md={6}>
+            <Box
+              sx={{
+                position: 'relative',
+                px: { xs: 3, md: 8 },
+                pt: { xs: 6, md: 16 },
+                pb: { xs: 18, md: 40 },
+              }}
             >
-              <Typography component='h1' variant='h3' color='inherit' gutterBottom>
-                What is Teamnova? 
-              </Typography>
-              <Typography variant='h6' color='inherit' paragraph>
-                Teamnova is an A.Team-like online platform for mentorship in open source. The primary purpose of this open source project is to help university students cope with the challenges in the current tight hiring climate by working on exciting open source projects.
-              </Typography>
-              <Typography variant='h6' color='inherit' paragraph>
-                Different from some prestigious programs, such as Google Summer of Code, Teamnova-empowered Open Source Mentorship Programs aim to help mentors and mentees foster effective community engagement and team collaboration with the unique design of S-Team(Self-organizing Team) structure.
-              </Typography>
               <Stack
-                sx={{ py: 2 }}
-                direction='row'
-                spacing={4}
-                justifyContent='center'
+                direction='column'
+                alignItems='center'
+                spacing={3}
+                justifyContent='space-evenly'
               >
-                <Button component={RouterLink} to={`/programs`} variant='contained' size='large'>
-                  Demo
-                </Button>
-                <Button component={RouterLink} to={`/teams/${exampleTeamKey}`} variant='outlined' color='inherit' size='large'>
-                  Example S-Team
-                </Button>
+                <Typography component='h2' variant='h4' color='inherit' gutterBottom>
+                  {title}
+                </Typography>
+                <Typography variant='h6' color='inherit'>
+                  {description}
+                </Typography>
               </Stack>
-            </Stack>
-          </Box>
+            </Box>
+          </Grid>
         </Grid>
-      </Grid>
-    </Paper>
+      </Paper>
+      <Container sx={{ mt: { xs: -16, md: -32 } }} maxWidth='lg'>
+        <Paper
+          sx={{
+            position: 'relative',
+            backgroundColor: 'grey.30',
+            color: '#fff',
+            mb: 12,
+            backgroundSize: 'cover',
+          }}
+        >
+          <Box sx={{
+              backgroundColor: 'grey.900',
+              color: '#fff',
+              p: { xs: 1, md: 2 },             
+            }}>
+            <Typography variant='h6' color='inherit' gutterBottom>
+              PROGRAMS
+            </Typography>
+            <Typography variant='subtitle2' color='inherit' gutterBottom>
+              {note}
+            </Typography>
+          </Box>
+          <ProgramsGrid programs={programList}/>
+        </Paper>
+      </Container>
+    </main>
   )
 }
 
 export default HomePage
-
-

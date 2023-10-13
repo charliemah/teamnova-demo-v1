@@ -20,26 +20,25 @@ function Navigation() {
       <Toolbar sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Stack
           direction='row'
-          spacing={3}
+          spacing={1}
           sx={{ flexGrow: 1 }}
         >
           <Button component={RouterLink} to={'/'} variant='contained'>
             Teamnova
           </Button>
-          <Button component={RouterLink} to={'/programs'} size='small' color='inherit'>
-            Demo
+          <Button component={RouterLink} to={'/about'} style={{textTransform: 'none'}} size='small' color='inherit'>
+            About
           </Button>
         </Stack>
-
           {currentUser.isSignedIn ? (
             <Stack
               direction='row'
               spacing={2}
             >
-              <Button component={RouterLink} to={'/me'} size='small' color='inherit' variant='text'>
+              <Button style={{textTransform: 'none'}} size='small' color='inherit' variant='text'>
                 Me
               </Button>
-              <Button onClick={signOut} size='small' color='inherit' variant='text'>
+              <Button onClick={signOut} style={{textTransform: 'none'}} size='small' color='inherit' variant='text'>
                 Sign out
               </Button>
             </Stack>
@@ -47,12 +46,12 @@ function Navigation() {
           ) : (
             <Stack
               direction='row'
-              spacing={2}
+              spacing={1}
             >
-              <Button component={RouterLink} to={'/signin'} size='small' color='inherit' variant='text'>
+              <Button component={RouterLink} to={'/signin'} style={{textTransform: 'none'}} size='small' color='inherit' variant='text'>
                 Sign in
               </Button>
-              <Button component={RouterLink} to={'/signup'} size='small' variant='contained'>
+              <Button component={RouterLink} to={'/signup'} style={{textTransform: 'none'}} size='small' variant='contained'>
                 Sign up
               </Button>
             </Stack>

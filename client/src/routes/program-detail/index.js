@@ -70,7 +70,7 @@ const ProgramDetail = () => {
             <Box
               sx={{
                 position: 'relative',
-                px: { xs: 3, md: 6 },
+                px: { xs: 3, md: 12 },
                 pt: { xs: 6, md: 12 },
                 pb: 40,
               }}
