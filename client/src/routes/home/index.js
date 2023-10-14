@@ -9,8 +9,8 @@ import Container from '@mui/material/Container'
 
 import ProgramsGrid from '../../components/program/ProgramsGrid'
 
-const title = 'Teamnova: Make Mentorship in Open Source Accessible for More Students'
-const description = 'Learn from the world\'s best mentors by working on real-world projects. Join an Open Source Mentorship Program today!'
+const title = 'Make Mentorship in Open Source Accessible for More Students'
+const description = 'Learn from the world\'s best mentors by working on real-world projects. Join a Teamnova-empowered Open Source Mentorship Program today!'
 const note = '* This is a demonstration of what\'s possible with Teamnova-empowered Open Source Mentorship Programs.'
 
 const HomePage = () => {
@@ -30,6 +30,7 @@ const HomePage = () => {
           mt: 2,
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
           backgroundImage: `url(${backgroundImageUrl})`,
         }}
       >
@@ -45,22 +46,22 @@ const HomePage = () => {
           }}
         />
         <Grid container>
-          <Grid item md={6}>
+          <Grid item md={8}>
             <Box
               sx={{
                 position: 'relative',
-                px: { xs: 3, md: 8 },
-                pt: { xs: 6, md: 16 },
-                pb: { xs: 18, md: 40 },
+                px: { xs: 3, md: 12 },
+                pt: { xs: 10, md: 20 },
+                pb: 60,
               }}
             >
               <Stack
                 direction='column'
                 alignItems='center'
-                spacing={3}
+                spacing={6}
                 justifyContent='space-evenly'
               >
-                <Typography component='h2' variant='h4' color='inherit' gutterBottom>
+                <Typography component='h2' variant='h4' color='inherit' sx={{ fontWeight: 'bold' }} gutterBottom>
                   {title}
                 </Typography>
                 <Typography variant='h6' color='inherit'>
@@ -71,7 +72,7 @@ const HomePage = () => {
           </Grid>
         </Grid>
       </Paper>
-      <Container sx={{ mt: { xs: -16, md: -32 } }} maxWidth='lg'>
+      <Container sx={{ mt: -25 }} maxWidth='xl'>
         <Paper
           sx={{
             position: 'relative',
@@ -82,11 +83,11 @@ const HomePage = () => {
           }}
         >
           <Box sx={{
-              backgroundColor: 'grey.900',
+              backgroundColor: '#002884',
               color: '#fff',
               p: { xs: 1, md: 2 },             
             }}>
-            <Typography variant='h6' color='inherit' gutterBottom>
+            <Typography variant='h6' color='inherit' sx={{ fontWeight: 'bold' }}>
               PROGRAMS
             </Typography>
             <Typography variant='subtitle2' color='inherit' gutterBottom>

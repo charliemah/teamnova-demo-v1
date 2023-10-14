@@ -5,7 +5,7 @@ import ProgramCard from '../ProgramCard'
 
 const ProgramsGrid = ({programs}) => {
   return (
-    <Container sx={{ py: 8 }} maxWidth='lg'>
+    <Container sx={{ py: 12 }} maxWidth='lg'>
       <Grid container spacing={4}>
         {programs.map((program) => (
           <ProgramCard key={program.key} program={program} />

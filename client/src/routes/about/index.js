@@ -15,7 +15,8 @@ const AboutPage = () => {
     <main>
       <Box
         sx={{
-          bgcolor: '#90caf9',
+          bgcolor: '#002884',
+          color: '#fff',
           pt: 24,
           pb: 18,
         }}
@@ -27,7 +28,7 @@ const AboutPage = () => {
             spacing={4}
             justifyContent='space-evenly'
           >
-            <Typography component='h1' variant='h3' color='inherit' gutterBottom>
+            <Typography component='h1' variant='h3' color='inherit' sx={{ fontWeight: 'bold' }} gutterBottom>
               What is Teamnova?
             </Typography>
             <ul>

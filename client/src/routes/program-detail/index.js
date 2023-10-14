@@ -114,7 +114,7 @@ const ProgramDetail = () => {
           </Grid>
         </Grid>
       </Paper>
-      <Container sx={{ mt: -32 }} maxWidth='lg'>
+      <Container sx={{ mt: -25 }} maxWidth='xl'>
         <Paper
           sx={{
             position: 'relative',
@@ -125,7 +125,7 @@ const ProgramDetail = () => {
         >
           <TabContext value={value}>
             <Box sx={{
-              backgroundColor: 'grey.900',
+              backgroundColor: '#002884',
               color: '#fff',
               borderBottom: 1,
               borderColor: 'divider',

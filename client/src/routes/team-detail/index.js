@@ -59,7 +59,7 @@ function TeamDetail() {
 
   const assetsPath = require.context('../../assets/images', false)
 
-  const logoUrl = assetsPath(team.logoUrl)
+  const teamLogoUrl = assetsPath(team.logoUrl)
 
   return (
     <main>
@@ -71,22 +71,22 @@ function TeamDetail() {
         }}
       >
         <Container maxWidth='sm'>
-          <Stack
-            direction='row'
-            alignItems='center'
-            spacing={3}
-            justifyContent='space-evenly'
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
           >
             <Avatar
-              src={logoUrl}
-              sx={{ width: 180, height: 180 }}
+              src={teamLogoUrl}
+              sx={{ width: 120, height: 120 }}
             />
             <Stack
               direction='column'
               alignItems='center'
               spacing={1}
               justifyContent='space-evenly'
-              sx={{ pt: 3 }}
             >
               <Stack
                 direction='row'
@@ -131,7 +131,7 @@ function TeamDetail() {
                 <Button variant='contained'>Support</Button>
               </Stack>
             </Stack>
-          </Stack>
+          </Box>
         </Container>
       </Box>
       <TabContext value={value}>
