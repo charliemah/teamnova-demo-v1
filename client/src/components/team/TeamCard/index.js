@@ -134,7 +134,7 @@ const TeamCard = ({ team }) => {
             spacing={2}
           >
             <Button size='small' variant='outlined'>Follow</Button>
-            <Button component={RouterLink} to={`/teams/${team.key}`} size='small' variant='contained'>View More</Button>
+            <Button component={RouterLink} to={`/teams/${team.key}`} size='small' variant='contained'>Learn More</Button>
           </Stack>
         </CardActions>
         <Collapse in={expanded} timeout='auto' unmountOnExit>

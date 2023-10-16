@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useParams, Link as RouterLink } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { format, parseISO } from 'date-fns'
 
 import Paper from '@mui/material/Paper'
@@ -21,12 +21,6 @@ import TeamsGrid from '../../components/team/TeamsGrid'
 const ProgramDetail = () => {
 
   const { progKey } =  useParams()
-
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch.teams.asyncFetchTeamsByProgram(progKey)
-  }, [progKey])
 
   const program = useSelector(state => state.programs.programList.filter(program => program.key === progKey)[0])
 
@@ -49,6 +43,7 @@ const ProgramDetail = () => {
           position: 'relative',
           backgroundColor: 'grey.800',
           color: '#fff',
+          mt: 2,
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
@@ -72,7 +67,7 @@ const ProgramDetail = () => {
                 position: 'relative',
                 px: { xs: 3, md: 12 },
                 pt: { xs: 6, md: 12 },
-                pb: 40,
+                pb: 50,
               }}
             >
               <Stack
@@ -81,19 +76,29 @@ const ProgramDetail = () => {
                 spacing={2}
                 justifyContent='space-evenly'
               >
-                <Button component={RouterLink} to={program.repoUrl} target='_blank' color='secondary'>
-                  {`${program.openSourceProj} | ${program.openSourceOrg}`}
-                </Button>
+                <Stack
+                  direction='row'
+                  justifyContent='center'
+                  spacing={0.5}
+                  sx={{ pt: 3 }}
+                >
+                  <Button component={RouterLink} to={program.repoUrl} target='_blank' color='primary'>
+                    {`${program.openSourceProj} | ${program.openSourceOrg}`}
+                  </Button>
+                  <Button sx={{ minWidth: 0, px: 0 }}>
+                    {program.key.toUpperCase()}
+                  </Button>
+                </Stack>
                 <Typography component='h1' variant='h4'  align='center' color='inherit'>
-                  {`${program.name} (${program.key.toUpperCase()})`}
+                  {program.name}
                 </Typography>
                 <Typography variant='subtitle1'>
                   {format(parseISO(program.startDate), 'MMM d, yyyy')} - {format(parseISO(program.endDate), 'MMM d, yyyy')}
                 </Typography>
-                <Typography variant='subtitle1' align='center'>
+                <Typography variant='subtitle2' align='center' color='secondary.light'>
                   {program.tagline}
                 </Typography>
-                <Typography variant='subtitle2'>
+                <Typography variant='subtitle1'>
                   {`${program.teamsCount} teams | ${program.openRolesCount} open roles | ${program.mentorsAcceptedCount} mentors | ${program.menteesAcceptedCount} mentees`}
                 </Typography>
                 <Stack
@@ -105,7 +110,7 @@ const ProgramDetail = () => {
                   <Button component={RouterLink} to={program.discordServerUrl} target='_blank' variant='outlined' color='inherit'>
                     Discord
                   </Button>
-                  <Button component={RouterLink} to={'/signin'} variant='contained'>
+                  <Button component={RouterLink} to={'/ask-charlie'} variant='contained'>
                     Apply Now                   
                   </Button>
                 </Stack>
@@ -114,12 +119,13 @@ const ProgramDetail = () => {
           </Grid>
         </Grid>
       </Paper>
-      <Container sx={{ mt: -25 }} maxWidth='xl'>
+      <Container sx={{ mt: -30 }} maxWidth='xl'>
         <Paper
           sx={{
             position: 'relative',
             backgroundColor: 'grey.30',
             color: '#fff',
+            mb: 30,
             backgroundSize: 'cover',
           }}
         >
@@ -144,9 +150,19 @@ const ProgramDetail = () => {
             </TabPanel>
             <TabPanel value='3'>
               <Container sx={{ py: 8 }} maxWidth='md'>
-                <Typography color='text.secondary' paragraph>
-                  {program.description}
-                </Typography>
+                <Box
+                  sx={{
+                    bgcolor: '#002884',
+                    color: '#fff',
+                    p: 18,
+                  }}
+                >
+                  <Container maxWidth='sm'>
+                    <Typography variant='h6' color='inherit' paragraph>
+                      {program.description}
+                    </Typography>
+                  </Container>
+                </Box>
               </Container>
             </TabPanel>
           </TabContext>

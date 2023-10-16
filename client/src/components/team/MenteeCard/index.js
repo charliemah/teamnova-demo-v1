@@ -27,7 +27,7 @@ const MenteeCard = ({ role }) => {
             spacing={1}
             justifyContent='space-evenly'
           >
-            <Typography variant='subtitle1' color='secondary'>
+            <Typography variant='subtitle1' color='secondary.light'>
               {`${role.name} (${role.teamKey.toUpperCase()}-${role.number})`}
             </Typography>
             <Stack
@@ -38,7 +38,7 @@ const MenteeCard = ({ role }) => {
                 {role.mentee.profile.name}
               </Typography>
               {role.graduated &&
-                <Typography variant='subtitle2' color='secondary'>
+                <Typography variant='subtitle2' color='secondary.light'>
                   Graduated
                 </Typography>                   
               }
@@ -64,7 +64,7 @@ const MenteeCard = ({ role }) => {
             spacing={2}
           >
             <Button component={RouterLink} to={'/signin'} size='small' variant='outlined'>Follow</Button>
-            <Button component={RouterLink} to={`/teams/${role.teamKey}/mentees/${role.number}`} size='small' variant='contained'>View More</Button>
+            <Button component={RouterLink} to={`/teams/${role.teamKey}/mentees/${role.number}`} size='small' variant='contained'>Learn More</Button>
           </Stack>
         </CardActions>
       </Card>

@@ -32,7 +32,7 @@ const MentorCard = ({ role }) => {
             spacing={1}
             justifyContent='space-evenly'
           >
-            <Typography variant='subtitle1' color='secondary'>
+            <Typography variant='subtitle1' color='secondary.light'>
               {role.name}
             </Typography>
             <Typography variant='h6'>
@@ -70,7 +70,7 @@ const MentorCard = ({ role }) => {
             spacing={2}
           >
             <Button size='small' variant='outlined'>Follow</Button>
-            <Button component={RouterLink} to={`/teams/${role.teamKey}/mentors/${role.number}`} size='small' variant='contained'>View More</Button>
+            <Button component={RouterLink} to={`/teams/${role.teamKey}/mentors/${role.number}`} size='small' variant='contained'>Learn More</Button>
           </Stack>
         </CardActions>
       </Card>

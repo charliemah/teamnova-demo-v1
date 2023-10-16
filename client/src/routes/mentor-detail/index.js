@@ -65,10 +65,10 @@ function MentorDetail() {
                 spacing={0.5}
                 sx={{ pt: 3 }}
               >
-                <Button size='small' color='inherit' variant='text' sx={{ minWidth: 0, px: 0 }}>
+                <Button color='inherit' variant='text' sx={{ minWidth: 0, px: 0 }}>
                   {role.name} | S-Team
                 </Button>
-                <Button component={RouterLink} to={`/teams/${teamKey}`} size='small' color='secondary' sx={{ minWidth: 0, px: 0 }}>
+                <Button component={RouterLink} to={`/teams/${teamKey}`} color='primary' sx={{ minWidth: 0, px: 0 }}>
                   {teamKey.toUpperCase()}
                 </Button>
               </Stack>
@@ -99,7 +99,7 @@ function MentorDetail() {
                 sx={{ py: 2 }}
               >
                 <Button variant='outlined'>Follow</Button>
-                <Button component={RouterLink} to={'/signin'} variant='contained'>Get Help</Button>
+                <Button component={RouterLink} to={'/ask-charlie'} variant='contained'>Get Help</Button>
               </Stack>
             </Stack>
           </Stack>

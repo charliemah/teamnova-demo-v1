@@ -2,43 +2,6 @@ import axios from 'axios'
 
 import { baseUrl } from '../config'
 
-export const user = {
-  state: {
-    isSignedIn: false,
-    userId: '',
-    email: '',
-    accountType: '',
-    token: '',
-  },
-  reducers: {
-    setCurrentUser(state, payload) {
-      return {
-        ...state,
-        isSignedIn: true,
-        ...payload,
-      }
-    },
-    signOutUser() {
-      return {
-        userId: '',
-        email: '',
-        accountType: '',
-        token: '',
-      }
-    }
-  },
-  effects: dispatch => ({
-    async asyncSignUp(payload) {
-      const response = await axios.post(`${baseUrl}/api/v1/auth/signup`, payload)
-      dispatch.user.setCurrentUser(response.data)
-    },
-    async asyncSignIn(payload) {
-      const response = await axios.post(`${baseUrl}/api/v1/auth/signin`, payload)
-      dispatch.user.setCurrentUser(response.data)
-    },
-  })
-}
-
 export const programs = {
   state: {
     programList: [],
@@ -117,26 +80,6 @@ export const roles = {
     async asyncFetchMenteesByTeam(payload) {
       const response = await axios.get(`${baseUrl}/api/v1/teams/${payload}/mentees`)
       dispatch.roles.setMenteeList(response.data)
-    },
-  }),
-}
-
-export const sprints = {
-  state: {
-    sprintList: [],
-  },
-  reducers: {
-    setSprintList(state, payload) {
-      return {
-        ...state,
-        sprintList: payload,
-      }
-    },
-  },
-  effects: dispatch => ({
-    async asyncFetchSprintsByTeam(payload) {
-      const response = await axios.get(`${baseUrl}/api/v1/teams/${payload}/sprints`)
-      dispatch.sprints.setSprintList(response.data)
     },
   }),
 }

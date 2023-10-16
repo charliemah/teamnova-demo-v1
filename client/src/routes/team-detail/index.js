@@ -12,12 +12,9 @@ import TabContext from '@mui/lab/TabContext'
 import TabList from '@mui/lab/TabList'
 import TabPanel from '@mui/lab/TabPanel'
 import Container from '@mui/material/Container'
-import Grid from '@mui/material/Grid'
 
 import MentorsGrid from '../../components/team/MentorsGrid'
-import MenteesGrid from '../../components/team/MenteesGrid'
 import OpenRolesGrid from '../../components/team/OpenRolesGrid'
-import SprintsGrid from '../../components/team/SprintsGrid'
 
 function TeamDetail() {
 
@@ -40,22 +37,10 @@ function TeamDetail() {
   const mentorList = useSelector(state => state.roles.mentorList)
 
   useEffect(() => {
-    dispatch.roles.asyncFetchMenteesByTeam(teamKey)
-  }, [teamKey])
-
-  const menteeList = useSelector(state => state.roles.menteeList)
-
-  useEffect(() => {
     dispatch.roles.asyncFetchOpenRolesByTeam(teamKey)
   }, [teamKey])
 
   const openRoleList = useSelector(state => state.roles.openRoleList)
-
-  useEffect(() => {
-    dispatch.sprints.asyncFetchSprintsByTeam(teamKey)
-  }, [teamKey])
-
-  const sprintList = useSelector(state => state.sprints.sprintList)
 
   const assetsPath = require.context('../../assets/images', false)
 
@@ -94,7 +79,7 @@ function TeamDetail() {
                 spacing={0.5}
                 sx={{ pt: 3 }}
               >
-                <Button component={RouterLink} to={`/programs/${team.program.key}`} size='small' color='secondary' sx={{ minWidth: 0, px: 0 }}>
+                <Button component={RouterLink} to={`/programs/${team.program.key}`} color='primary' sx={{ minWidth: 0, px: 0 }}>
                   {team.program.key.toUpperCase()}
                 </Button>
                 <Button size='small' color='inherit' variant='text' sx={{ minWidth: 0, px: 0 }}>
@@ -138,44 +123,42 @@ function TeamDetail() {
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <TabList onChange={handleChange} textColor='inherit' aria-label='team tabs'>
             <Tab label='Mentors' value='1' />
-            <Tab label='Mentees' value='2' />
-            <Tab label='Open Roles' value='3' />
-            <Tab label='Sprints' value='4' />
-            <Tab label='Mission' value='5' />
+            <Tab label='Open Roles' value='2' />
+            <Tab label='Mission' value='3' />
           </TabList>
         </Box>
         <TabPanel value='1'>
           <MentorsGrid roles={mentorList} />
         </TabPanel>
         <TabPanel value='2'>
-          <MenteesGrid roles={menteeList} />
-        </TabPanel>
-        <TabPanel value='3'>
           <OpenRolesGrid roles={openRoleList} />
         </TabPanel>
-        <TabPanel value='4'>
-          <SprintsGrid sprints={sprintList}/>
-        </TabPanel>
-        <TabPanel value='5'>
-          <Grid container>
-            <Grid item md={6}>
-              <Box
-                sx={{
-                  position: 'relative',
-                  px: 10,
-                  pr: { md: 0 },
-                  py: 20,
-                }}
-              >
-                <Typography align='center' variant='h2' color='inherit'>
-                  Mission
-                </Typography>
-                <Typography align='center' variant='h6' color='inherit'>
-                  {team.mission}
-                </Typography>
-              </Box>
-            </Grid>
-          </Grid>
+        <TabPanel value='3'>
+          <Container sx={{ py: 8 }} maxWidth='md'>
+            <Box
+              sx={{
+                bgcolor: '#002884',
+                color: '#fff',
+                p: 18,
+              }}
+            >
+              <Container maxWidth='sm'>
+                <Stack
+                  direction='column'
+                  alignItems='center'
+                  spacing={4}
+                  justifyContent='space-evenly'
+                >
+                  <Typography variant='h4' color='inherit'>
+                    Mission
+                  </Typography>
+                  <Typography variant='h5' color='inherit'>
+                    {team.mission}
+                  </Typography>
+                </Stack>
+              </Container>
+            </Box>
+          </Container>
         </TabPanel>
       </TabContext>
     </main>

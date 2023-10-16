@@ -70,7 +70,7 @@ const OpenRoleCard = ({ role }) => {
               spacing={1}
               sx={{ pt: 3 }}
             >
-              <Typography variant='subtitle2' color='secondary'>
+              <Typography variant='subtitle2' color='secondary.light'>
                 Open Role
               </Typography>
               <Typography variant='body2' color='text.secondary'>

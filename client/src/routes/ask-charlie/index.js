@@ -9,7 +9,7 @@ const whatIsTeamnova = [
   'Google Summer of Code (GSoC), as one of the most prestigious OSMPs, is highly competitive. According to 2023 statistics, out of 43,765 applicants and 7,723 proposals submitted, only 967 GSoC contributors were accepted. We hope that Teamnova can help more people benefit from high-quality project-based mentorship programs like GSoC.'
 ]
 
-const AboutPage = () => {
+const AskCharliePage = () => {
 
   return (
     <main>
@@ -33,12 +33,7 @@ const AboutPage = () => {
             </Typography>
             <ul>
               {whatIsTeamnova.map((paragraph, i) => (
-                <Typography
-                  variant='subtitle1'
-                  color='inherit'
-                  key={i}
-                  paragraph
-                >
+                <Typography variant='h6' color='inherit' key={i} paragraph>
                   {paragraph}
                 </Typography>
               ))}
@@ -50,6 +45,6 @@ const AboutPage = () => {
   )
 }
 
-export default AboutPage
+export default AskCharliePage
 
 

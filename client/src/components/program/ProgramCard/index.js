@@ -27,13 +27,13 @@ const ProgramCard = ({ program }) => {
             spacing={2}
             justifyContent='space-evenly'
           >
-            <Typography component='h2' variant='h6'>
+            <Typography component='h2' variant='h6' color='primary'>
               {program.name.toUpperCase()}
             </Typography>
             <Typography variant='subtitle1' color='text.secondary'>
               {format(parseISO(program.startDate), 'MMM d, yyyy')} - {format(parseISO(program.endDate), 'MMM d, yyyy')}
             </Typography>
-            <Typography variant='subtitle1'>
+            <Typography variant='subtitle1' color='secondary.light'>
               {program.tagline}
             </Typography>
             <Typography variant='subtitle2' color='text.secondary'>
@@ -65,7 +65,7 @@ const ProgramCard = ({ program }) => {
             spacing={2}
           >
             <Button component={RouterLink} to={program.discordServerUrl} target='_blank' size='small' variant='outlined'>Discord</Button>
-            <Button component={RouterLink} to={`/programs/${program.key}`} size='small' variant='contained'>View More</Button>
+            <Button component={RouterLink} to={`/programs/${program.key}`} size='small' variant='contained'>Learn More</Button>
           </Stack>
         </CardActions>
       </Card>
