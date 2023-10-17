@@ -137,7 +137,7 @@ function TeamDetail() {
           <Container sx={{ py: 8 }} maxWidth='md'>
             <Box
               sx={{
-                bgcolor: '#002884',
+                bgcolor: '#42a5f5',
                 color: '#fff',
                 p: 18,
               }}

@@ -21,7 +21,7 @@ const AskCharliePage = () => {
           pb: 18,
         }}
       >
-        <Container maxWidth='sm'>
+        <Container maxWidth='md'>
           <Stack
             direction='column'
             alignItems='center'

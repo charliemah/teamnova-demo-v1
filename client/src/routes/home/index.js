@@ -17,7 +17,7 @@ import LinksGrid from '../../components/profile/LinksGrid'
 
 const title = 'Democratize Mentorship in Open Source for Challenges of Tomorrow'
 const description = [
-  'Empower the Next Generation of Google Summer of Code (GSoC) and Alternatives to Make Mentorship in Open Source More Accessible and Inclusive.',
+  'Empower the Next Generation of Google Summer of Code (GSoC) and Alternatives to Make Mentorship in Open Source More Accessible.',
   'Get started today to build a Teamnova-empowered open source mentorship programs for challenges of tomorrow!'
 ]
 const note = '* This is a demonstration of what\'s possible with Teamnova-empowered open source mentorship programs.'
@@ -85,27 +85,25 @@ const HomePage = () => {
               <Stack
                 direction='column'
                 alignItems='center'
-                spacing={6}
+                spacing={3}
                 justifyContent='space-evenly'
               >
                 <Typography component='h2' variant='h4' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '60px' }} gutterBottom>
                   {title}
                 </Typography>
-                <ul>
-                  {description.map((paragraph, i) => (
-                    <Typography
-                      variant='h6'
-                      color='primary.light'
-                      key={i}
-                      paragraph
-                    >
-                      {paragraph}
-                    </Typography>
-                  ))}
-                </ul>
-                <Typography variant='subtitle2' color='secondary.light'>
-                  {note}
-                </Typography>
+                <Stack
+                  direction='column'
+                  alignItems='center'
+                  spacing={1}
+                  justifyContent='space-evenly'
+                >
+                  <Typography variant='h6' color='primary.light'>
+                    {description[0]}
+                  </Typography>
+                  <Typography variant='h6' color='primary.light'>
+                    {description[1]}
+                  </Typography>
+                </Stack>
               </Stack>
             </Box>
           </Grid>
@@ -117,7 +115,7 @@ const HomePage = () => {
             position: 'relative',
             backgroundColor: 'grey.30',
             color: '#fff',
-            mb: 30,
+            mb: 20,
             backgroundSize: 'cover',
           }}
         >
@@ -134,6 +132,9 @@ const HomePage = () => {
                 <Tab label='About' value='3' />
               </TabList>
             </Box>
+            <Typography variant='subtitle2' color='secondary.light'>
+              {note}
+            </Typography>
             <TabPanel value='1'>
               <ProgramsGrid programs={demoProgramList}/>
             </TabPanel>
@@ -146,25 +147,21 @@ const HomePage = () => {
                   sx={{
                     bgcolor: '#002884',
                     color: '#fff',
-                    p: 18,
+                    p: 6,
                   }}
                 >
-                  <Container maxWidth='sm'>
-                    <Stack
-                      direction='column'
-                      alignItems='center'
-                      spacing={4}
-                      justifyContent='space-evenly'
-                    >
-                      <ul>
-                        {about.map((paragraph, i) => (
-                          <Typography variant='h6' color='inherit' key={i} paragraph>
-                            {paragraph}
-                          </Typography>
-                        ))}
-                      </ul>
-                    </Stack>
-                  </Container>
+                  <Stack
+                    direction='column'
+                    alignItems='center'
+                    spacing={4}
+                    justifyContent='space-evenly'
+                  >
+                    {about.map((paragraph, i) => (
+                      <Typography variant='h6' color='inherit' key={i} paragraph>
+                        {paragraph}
+                      </Typography>
+                    ))}
+                  </Stack>
                 </Box>
               </Container>
             </TabPanel>

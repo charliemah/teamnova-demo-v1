@@ -125,7 +125,7 @@ const ProgramDetail = () => {
             position: 'relative',
             backgroundColor: 'grey.30',
             color: '#fff',
-            mb: 30,
+            mb: 20,
             backgroundSize: 'cover',
           }}
         >
@@ -154,14 +154,12 @@ const ProgramDetail = () => {
                   sx={{
                     bgcolor: '#002884',
                     color: '#fff',
-                    p: 18,
+                    p: 6,
                   }}
                 >
-                  <Container maxWidth='sm'>
-                    <Typography variant='h6' color='inherit' paragraph>
-                      {program.description}
-                    </Typography>
-                  </Container>
+                  <Typography variant='h6' color='inherit' paragraph>
+                    {program.description}
+                  </Typography>
                 </Box>
               </Container>
             </TabPanel>
