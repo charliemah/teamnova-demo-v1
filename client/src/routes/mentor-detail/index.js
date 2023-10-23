@@ -107,7 +107,7 @@ function MentorDetail() {
       </Box>
       <TabContext value={value}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-          <TabList onChange={handleChange} textColor='inherit' aria-label='mentor tabs'>
+          <TabList onChange={handleChange} textColor='inherit' aria-label='mentor tabs' centered>
             <Tab label='Links' value='1' />
             <Tab label='Projects' value='2' />
             <Tab label='About' value='3' />

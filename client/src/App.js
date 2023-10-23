@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { Routes, Route, Navigate } from 'react-router-dom'
 
 import { exampleProgKey } from './config'
+import Footer from './components/generic/Footer'
 
 const Navigation = lazy(() =>import('./routes/navigation'))
 const HomePage = lazy(() =>import('./routes/home'))
@@ -33,6 +34,7 @@ const App = () => {
           <Route path='*' element={<Navigate to='/' />} />
         </Route>
       </Routes>
+      <Footer />
     </Suspense>
   )
 }

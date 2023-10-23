@@ -121,7 +121,7 @@ function TeamDetail() {
       </Box>
       <TabContext value={value}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-          <TabList onChange={handleChange} textColor='inherit' aria-label='team tabs'>
+          <TabList onChange={handleChange} textColor='inherit' aria-label='team tabs' centered>
             <Tab label='Mentors' value='1' />
             <Tab label='Open Roles' value='2' />
             <Tab label='Mission' value='3' />

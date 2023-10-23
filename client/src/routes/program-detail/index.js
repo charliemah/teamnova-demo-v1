@@ -61,7 +61,7 @@ const ProgramDetail = () => {
           }}
         />
         <Grid container>
-          <Grid item md={6}>
+          <Grid item md={12}>
             <Box
               sx={{
                 position: 'relative',
@@ -131,12 +131,12 @@ const ProgramDetail = () => {
         >
           <TabContext value={value}>
             <Box sx={{
-              backgroundColor: '#002884',
+              backgroundColor: '#010A13',
               color: '#fff',
               borderBottom: 1,
               borderColor: 'divider',
             }}>
-              <TabList onChange={handleChange} textColor='inherit' aria-label='program tabs'>
+              <TabList onChange={handleChange} textColor='inherit' aria-label='program tabs' centered>
                 <Tab label='S-Teams' value='1' />
                 <Tab label='Lead Mentors' value='2' />
                 <Tab label='About' value='3' />

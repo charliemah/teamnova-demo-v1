@@ -1,45 +1,67 @@
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
+import { Link as RouterLink } from 'react-router-dom'
+import { format, parseISO } from 'date-fns'
 
-import Paper from '@mui/material/Paper'
 import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import Grid from '@mui/material/Grid'
 import Container from '@mui/material/Container'
+import Button from '@mui/material/Button'
 import Tab from '@mui/material/Tab'
 import TabContext from '@mui/lab/TabContext'
 import TabList from '@mui/lab/TabList'
 import TabPanel from '@mui/lab/TabPanel'
+import Card from '@mui/material/Card'
+import CardMedia from '@mui/material/CardMedia'
+import CardContent from '@mui/material/CardContent'
 
-import ProgramsGrid from '../../components/program/ProgramsGrid'
-import LinksGrid from '../../components/profile/LinksGrid'
+import { exampleProgKey } from '../../config'
 
-const title = 'Democratize Mentorship in Open Source for Challenges of Tomorrow'
-const description = [
-  'Empower the Next Generation of Google Summer of Code (GSoC) and Alternatives to Make Mentorship in Open Source More Accessible.',
-  'Get started today to build a Teamnova-empowered open source mentorship programs for challenges of tomorrow!'
+const titles = [
+  'Collaborative Learning Over Code',
 ]
-const note = '* This is a demonstration of what\'s possible with Teamnova-empowered open source mentorship programs.'
-const about = [
-  'Teamnova, made in Vancouver with love, is on a mission to make Project-based Mentorship in Open Source more accessible and inclusive.',
-  'Google Summer of Code (GSoC), as one of the most prestigious OSMPs, is highly competitive. According to 2023 statistics, out of 43,765 applicants and 7,723 proposals submitted, only 967 GSoC contributors were accepted. We hope that Teamnova can help more people benefit from high-quality project-based mentorship programs like GSoC.'
+const subtitles = [
+  'The TEAMNOVA Way of Democratizing',
+  'Mentorship in Open Source',
+  'for the Future of Work'
 ]
-const useCaselinks = [
-  {
-    "title":"FoodieAI Mentorship Program",
-    "url":"https://www.vercel.com",
-    "tagline":"Open Source for Social Good",
-    "imageUrl":"./default_card_thumbnail.jpg",
-  }
+const propositions = [
+  ['1', 'Build a more diverse talent pipeline for your community', 'Enhance the inclusivity and vibrancy of your community by cultivating a more diverse talent pipeline.'],
+  ['2', 'Help more mentees in a more engaged and effective way', 'Foster self-organization and informal learning within a Scrum team to support a greater number of mentees.'],
+  ['3', 'Leverage your soft skills to future-proof your career', 'Prepare for a complex future by developing a growth mindset, harnessing soft skills and embracing collaborative learning.']
+]
+const subheaders = [
+  'Inspired by Larry Page\'s Experiment -',
+  'Google Summer of Code (GSoC)',
+  'Made in Vancouver with love'
+]
+const mission = [
+  'Team TEAMNOVA is on a MISSION to Make',
+  'Mentorship in Open Source',
+  'More',
+  'ACCESSIBLE',
+  'for More Students'
+]
+
+const steam = [
+  'Why S-Team?',
+  'While traditional Open Source Mentorship Programs (OSMPs) are excellent, they often lack a structured approach for effective team collaboration.',
+  'Why not create a new platform where mentors can help mentees improve both the hard and soft skills required for open source?',
+  'This is how the idea of the \'S-Team\' (Self-organizing Team) structure was born.',
+]
+ 
+const gsoc = [
+  'According to 2023 statistics, only 967 contributors were accepted into Google Summer of Code (GSoC) out of 43,765 applicants and 7,723 proposals submitted.'
 ]
 
 const HomePage = () => {
 
   const assetsPath = require.context('../../assets/images', false)
-  const backgroundImageUrl = assetsPath('./default_program_thumbnail.jpg')
+  const backgroundImageUrl1 = assetsPath('./default_program_thumbnail.jpg')
+  const backgroundImageUrl2 = assetsPath('./default_team_thumbnail.jpg')
 
-  const demoProgramList = useSelector(state => state.programs.programList)
+  const exampleProgram = useSelector(state => state.programs.programList.filter(program => program.key === exampleProgKey)[0])
 
   const [value, setValue] = useState('1')
 
@@ -48,127 +70,190 @@ const HomePage = () => {
   }
 
   return (
-    <main>
-      <Paper
+    <Container maxWidth={false} disableGutters>
+      <Box
         sx={{
           position: 'relative',
-          backgroundColor: 'grey.800',
+          bgcolor: '#010A13',
           color: '#fff',
-          mt: 2,
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-          backgroundImage: `url(${backgroundImageUrl})`,
+          alignItems: 'center',
+          px: { xs: 10, md: 20 },
+          py: { xs: 5, md: 10 },
+          mb: 2,
         }}
       >
-        {<img style={{ display: 'none' }} src={backgroundImageUrl}/>}
-        <Box
-          sx={{
-            position: 'absolute',
-            top: 0,
-            bottom: 0,
-            right: 0,
-            left: 0,
-            backgroundColor: 'rgba(0,0,0,.3)',
-          }}
-        />
-        <Grid container>
-          <Grid item md={8}>
-            <Box
-              sx={{
-                position: 'relative',
-                px: { xs: 3, md: 12 },
-                pt: { xs: 10, md: 20 },
-                pb: 50,
-              }}
-            >
-              <Stack
-                direction='column'
-                alignItems='center'
-                spacing={3}
-                justifyContent='space-evenly'
-              >
-                <Typography component='h2' variant='h4' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '60px' }} gutterBottom>
-                  {title}
-                </Typography>
-                <Stack
-                  direction='column'
-                  alignItems='center'
-                  spacing={1}
-                  justifyContent='space-evenly'
-                >
-                  <Typography variant='h6' color='primary.light'>
-                    {description[0]}
-                  </Typography>
-                  <Typography variant='h6' color='primary.light'>
-                    {description[1]}
-                  </Typography>
-                </Stack>
-              </Stack>
-            </Box>
-          </Grid>
-        </Grid>
-      </Paper>
-      <Container sx={{ mt: -30 }} maxWidth='xl'>
-        <Paper
-          sx={{
-            position: 'relative',
-            backgroundColor: 'grey.30',
-            color: '#fff',
-            mb: 20,
-            backgroundSize: 'cover',
-          }}
+        <Stack
+          direction='column'
+          alignItems='center'
+          spacing={3}
+          justifyContent='space-evenly'
         >
-         <TabContext value={value}>
-            <Box sx={{
-              backgroundColor: '#002884',
-              color: '#fff',
-              borderBottom: 1,
-              borderColor: 'divider',
-            }}>
-              <TabList onChange={handleChange} textColor='inherit' aria-label='homepage tabs'>
-                <Tab label='Demos' value='1' />
-                <Tab label='Use Cases' value='2' />
-                <Tab label='About' value='3' />
+          <Typography variant='h4' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '80px' }} gutterBottom>
+            {titles[0]}
+          </Typography>
+          <Typography variant='h6' color='inherit'>
+            {subtitles[0]} <Box color='primary.light' display='inline'>{subtitles[1]} </Box> {subtitles[2]}
+          </Typography>
+        </Stack>
+      </Box>
+      <Card
+        sx={{ display: 'flex', flexDirection: 'row' }}
+      >
+        <CardContent sx={{ flex: 1 }}>
+          <TabContext value={value}>
+            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+              <TabList onChange={handleChange} textColor='inherit' aria-label='user tabs'>
+                <Tab label='Community Leader' style={{textTransform: 'none'}} value='1' />
+                <Tab label='Mentor' style={{textTransform: 'none'}} value='2' />
+                <Tab label='Mentee' style={{textTransform: 'none'}} value='3' />
               </TabList>
             </Box>
-            <Typography variant='subtitle2' color='secondary.light'>
-              {note}
-            </Typography>
-            <TabPanel value='1'>
-              <ProgramsGrid programs={demoProgramList}/>
-            </TabPanel>
-            <TabPanel value='2'>
-              <LinksGrid links={useCaselinks} />
-            </TabPanel>
-            <TabPanel value='3'>
-              <Container sx={{ py: 8 }} maxWidth='md'>
-                <Box
+            {propositions.map((proposition, i) => (
+              <TabPanel key={i} value={proposition[0]}>
+                <Stack
+                  direction='column'
+                  spacing={3}
+                  justifyContent='space-evenly'
                   sx={{
-                    bgcolor: '#002884',
-                    color: '#fff',
-                    p: 6,
+                    px: 6,
+                    py: 6,
                   }}
                 >
-                  <Stack
-                    direction='column'
-                    alignItems='center'
-                    spacing={4}
-                    justifyContent='space-evenly'
-                  >
-                    {about.map((paragraph, i) => (
-                      <Typography variant='h6' color='inherit' key={i} paragraph>
-                        {paragraph}
-                      </Typography>
-                    ))}
-                  </Stack>
-                </Box>
-              </Container>
-            </TabPanel>
+                  <Typography variant='h4' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
+                    {proposition[1]}
+                  </Typography>
+                  <Typography variant='h6'>
+                    {proposition[2]}
+                  </Typography>
+                </Stack>
+              </TabPanel>
+            ))}
           </TabContext>
-        </Paper>
-      </Container>
-    </main>
+        </CardContent>
+        <CardMedia
+          component='img'
+          sx={{ width: '50%', display: { xs: 'none', sm: 'block' } }}
+          image={backgroundImageUrl1}
+          alt={exampleProgram.name}
+        />
+      </Card>
+      <Box
+        sx={{
+          position: 'relative',
+          bgcolor:  'grey.30',
+          alignItems: 'center',
+          px: { xs: 10, md: 20 },
+          py: { xs: 5, md: 10 },
+          mb: 2,
+        }}
+      >
+        <Stack
+          direction='column'
+          alignItems='center'
+          spacing={6}
+          justifyContent='space-evenly'
+        >
+          <Typography variant='h4' color='primary.dark' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
+            Example Program
+          </Typography>
+          <Typography variant='h4'>
+            {exampleProgram.name.toUpperCase()}
+          </Typography>
+          <Typography variant='h6'>
+            {format(parseISO(exampleProgram.startDate), 'MMM d, yyyy')} - {format(parseISO(exampleProgram.endDate), 'MMM d, yyyy')}
+          </Typography>
+          <Typography variant='subtitle1'>
+            {exampleProgram.tagline}
+          </Typography>
+          <Button component={RouterLink} to={`/programs/${exampleProgram.key}`} size='large' variant='contained'> Learn More </Button>
+        </Stack>
+      </Box>
+      <Card
+        sx={{ display: 'flex', flexDirection: 'row' }}
+      >
+        <CardMedia
+          component='img'
+          sx={{ width: '50%', display: { xs: 'none', sm: 'block' } }}
+          image={backgroundImageUrl2}
+          alt={exampleProgram.name}
+        />
+        <CardContent sx={{ flex: 1 }}>
+            <Stack
+              direction='column'
+              spacing={3}
+              justifyContent='space-evenly'
+              sx={{
+                p: 3,
+              }}
+            >
+              <Typography variant='h4' color='primary.dark' sx={{ fontWeight: 'bold', lineHeight: '80px' }}>
+                {steam[0]}
+              </Typography>
+              <Typography variant='h6' color='inherit'>
+                {steam[1]}
+              </Typography>
+              <Typography variant='h6' color='primary.dark'>
+                {steam[2]}
+              </Typography>
+              <Typography variant='h6' color='inherit'>
+                {steam[3]}
+              </Typography>
+            </Stack>
+        </CardContent>
+      </Card>
+      <Box
+        sx={{
+          position: 'relative',
+          bgcolor:  'grey.30',
+          alignItems: 'center',
+          px: { xs: 10, md: 20 },
+          py: { xs: 5, md: 10 },
+          mb: 2,
+        }}
+      >
+        <Stack
+          direction='column'
+          alignItems='center'
+          spacing={6}
+          justifyContent='space-evenly'
+        >
+          <Typography variant='h5' sx={{ lineHeight: '50px' }}>
+            {gsoc[0]}
+          </Typography>
+        </Stack>
+      </Box>
+      <Box
+        sx={{
+          position: 'relative',
+          bgcolor: '#010A13',
+          color: '#fff',
+          alignItems: 'center',
+          px: { xs: 10, md: 20 },
+          py: { xs: 5, md: 10 },
+          mt: 2,
+        }}
+      >
+        <Stack
+          direction='column'
+          alignItems='center'
+          spacing={3}
+          justifyContent='space-evenly'
+        >
+          <Typography variant='h4' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }} gutterBottom>
+            {mission[0]}
+          </Typography>
+          <Typography variant='h4' color='primary.light' sx={{ fontWeight: 'bold', lineHeight: '50px' }} gutterBottom>
+            {mission[1]}
+          </Typography>
+          <Typography variant='h4' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }} gutterBottom>
+            {mission[2]} <Box color='primary.dark' display='inline'>{mission[3]}</Box> {mission[4]}
+          </Typography>
+          <Typography variant='h6' color='inherit'>
+            {subheaders[0]} <Box color='primary.light' display='inline'>{subheaders[1]} </Box> 
+          </Typography>
+        </Stack>
+      </Box>  
+    </Container> 
   )
 }
 
