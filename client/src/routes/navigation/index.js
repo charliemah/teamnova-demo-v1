@@ -6,7 +6,7 @@ import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Button from '@mui/material/Button'
 
-import { logoUrl } from '../../config'
+import { logoUrl, exampleProgKey } from '../../config'
 
 function Navigation() {
 
@@ -14,13 +14,13 @@ function Navigation() {
 
   return (
     <Fragment>
-      <Toolbar sx={{ borderBottom: 1, borderColor: 'divider' }}>
+      <Toolbar sx={{ borderBottom: 1, borderColor: 'divider' }} disableGutters>
         <Stack
           direction='row'
           spacing={3}
           sx={{ flexGrow: 1 }}
         >
-          <Button component={RouterLink} to={'/'} color='inherit'>
+          <Button component={RouterLink} to={'/'} color='inherit' sx={{ minWidth: 0, px: 0 }}>
             <Box
               component='img'
               sx={{ height: 50 }}
@@ -29,8 +29,8 @@ function Navigation() {
             />
           </Button>
         </Stack>
-        <Button component={RouterLink} to={'/ask-charlie'} style={{textTransform: 'none'}} variant='contained'>
-          Ask Charlie
+        <Button component={RouterLink} to={`/programs/${exampleProgKey}`} style={{textTransform: 'none'}} variant='contained'>
+          Demo
         </Button>
       </Toolbar>
       <Outlet />

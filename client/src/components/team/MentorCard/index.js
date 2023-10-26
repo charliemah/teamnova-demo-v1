@@ -55,7 +55,7 @@ const MentorCard = ({ role }) => {
                 <Box color='text.primary' display='inline'>{profile.reviewsCount}</Box> reviews
               </Typography>
             </Stack>
-            <ChipArray labels={role.topics} size='small' color='primary' variant='outlined'/>
+            <ChipArray labels={role.topics} size='small'/>
           </Stack>
         </CardContent>
         <CardActions

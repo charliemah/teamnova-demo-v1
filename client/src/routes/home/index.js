@@ -1,7 +1,5 @@
 import { useState } from 'react'
-import { useSelector } from 'react-redux'
 import { Link as RouterLink } from 'react-router-dom'
-import { format, parseISO } from 'date-fns'
 
 import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
@@ -20,9 +18,11 @@ import { exampleProgKey } from '../../config'
 
 const titles = [
   'Collaborative Learning Over Code',
+  'Try TEAMNOVA for free'
 ]
 const subtitles = [
-  'The TEAMNOVA Way of Democratizing',
+  'THE TEAMNOVA WAY of',
+  'Democratizing',
   'Mentorship in Open Source',
   'for the Future of Work'
 ]
@@ -50,18 +50,12 @@ const steam = [
   'Why not create a new platform where mentors can help mentees improve both the hard and soft skills required for open source?',
   'This is how the idea of the \'S-Team\' (Self-organizing Team) structure was born.',
 ]
- 
-const gsoc = [
-  'According to 2023 statistics, only 967 contributors were accepted into Google Summer of Code (GSoC) out of 43,765 applicants and 7,723 proposals submitted.'
-]
 
 const HomePage = () => {
 
   const assetsPath = require.context('../../assets/images', false)
-  const backgroundImageUrl1 = assetsPath('./default_program_thumbnail.jpg')
-  const backgroundImageUrl2 = assetsPath('./default_team_thumbnail.jpg')
-
-  const exampleProgram = useSelector(state => state.programs.programList.filter(program => program.key === exampleProgKey)[0])
+  const backgroundImageUrl1 = assetsPath('./collaborative_learning_1.jpg')
+  const backgroundImageUrl2 = assetsPath('./collaborative_learning_2.jpg')
 
   const [value, setValue] = useState('1')
 
@@ -77,23 +71,33 @@ const HomePage = () => {
           bgcolor: '#010A13',
           color: '#fff',
           alignItems: 'center',
-          px: { xs: 10, md: 20 },
-          py: { xs: 5, md: 10 },
-          mb: 2,
+          px: { xs: 5, md: 10 },
+          py: { xs: 10, md: 20 },
+          my: 5,
         }}
       >
         <Stack
           direction='column'
           alignItems='center'
-          spacing={3}
+          spacing={6}
           justifyContent='space-evenly'
         >
-          <Typography variant='h4' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '80px' }} gutterBottom>
+          <Typography variant='h3' color='primary.light' sx={{ fontWeight: 'bold', lineHeight: '80px' }} gutterBottom>
             {titles[0]}
           </Typography>
-          <Typography variant='h6' color='inherit'>
-            {subtitles[0]} <Box color='primary.light' display='inline'>{subtitles[1]} </Box> {subtitles[2]}
-          </Typography>
+          <Stack
+            direction='column'
+            alignItems='center'
+            spacing={2}
+            justifyContent='space-evenly'
+          >
+            <Typography variant='h5' color='inherit'>
+              {subtitles[0]}
+            </Typography>
+            <Typography variant='h5' color='inherit'>
+              {subtitles[1]} <Box color='primary.dark' display='inline'>{subtitles[2]}</Box> {subtitles[3]}
+            </Typography>
+          </Stack>
         </Stack>
       </Box>
       <Card
@@ -134,7 +138,6 @@ const HomePage = () => {
           component='img'
           sx={{ width: '50%', display: { xs: 'none', sm: 'block' } }}
           image={backgroundImageUrl1}
-          alt={exampleProgram.name}
         />
       </Card>
       <Box
@@ -144,28 +147,20 @@ const HomePage = () => {
           alignItems: 'center',
           px: { xs: 10, md: 20 },
           py: { xs: 5, md: 10 },
-          mb: 2,
+          my: { xs: 5, md: 15 },
         }}
       >
         <Stack
-          direction='column'
+          direction='row'
           alignItems='center'
-          spacing={6}
           justifyContent='space-evenly'
         >
-          <Typography variant='h4' color='primary.dark' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
-            Example Program
+          <Typography variant='h4' color='#010A13' sx={{ fontWeight: 'bold' }}>
+            {titles[1]}
           </Typography>
-          <Typography variant='h4'>
-            {exampleProgram.name.toUpperCase()}
-          </Typography>
-          <Typography variant='h6'>
-            {format(parseISO(exampleProgram.startDate), 'MMM d, yyyy')} - {format(parseISO(exampleProgram.endDate), 'MMM d, yyyy')}
-          </Typography>
-          <Typography variant='subtitle1'>
-            {exampleProgram.tagline}
-          </Typography>
-          <Button component={RouterLink} to={`/programs/${exampleProgram.key}`} size='large' variant='contained'> Learn More </Button>
+          <Button component={RouterLink} to={`/programs/${exampleProgKey}`} variant='contained' style={{ width: 240, height: 80, fontSize: '20px' }}>
+            Get Started Now
+          </Button>
         </Stack>
       </Box>
       <Card
@@ -175,7 +170,6 @@ const HomePage = () => {
           component='img'
           sx={{ width: '50%', display: { xs: 'none', sm: 'block' } }}
           image={backgroundImageUrl2}
-          alt={exampleProgram.name}
         />
         <CardContent sx={{ flex: 1 }}>
             <Stack
@@ -204,33 +198,12 @@ const HomePage = () => {
       <Box
         sx={{
           position: 'relative',
-          bgcolor:  'grey.30',
-          alignItems: 'center',
-          px: { xs: 10, md: 20 },
-          py: { xs: 5, md: 10 },
-          mb: 2,
-        }}
-      >
-        <Stack
-          direction='column'
-          alignItems='center'
-          spacing={6}
-          justifyContent='space-evenly'
-        >
-          <Typography variant='h5' sx={{ lineHeight: '50px' }}>
-            {gsoc[0]}
-          </Typography>
-        </Stack>
-      </Box>
-      <Box
-        sx={{
-          position: 'relative',
           bgcolor: '#010A13',
           color: '#fff',
           alignItems: 'center',
-          px: { xs: 10, md: 20 },
-          py: { xs: 5, md: 10 },
-          mt: 2,
+          px: { xs: 5, md: 10 },
+          py: { xs: 10, md: 20 },
+          my: 5,
         }}
       >
         <Stack
@@ -252,8 +225,8 @@ const HomePage = () => {
             {subheaders[0]} <Box color='primary.light' display='inline'>{subheaders[1]} </Box> 
           </Typography>
         </Stack>
-      </Box>  
-    </Container> 
+      </Box>
+    </Container>
   )
 }
 

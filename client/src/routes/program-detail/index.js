@@ -89,16 +89,16 @@ const ProgramDetail = () => {
                     {program.key.toUpperCase()}
                   </Button>
                 </Stack>
-                <Typography component='h1' variant='h4'  align='center' color='inherit'>
+                <Typography variant='h4'  align='center' color='inherit'>
                   {program.name}
                 </Typography>
                 <Typography variant='subtitle1'>
                   {format(parseISO(program.startDate), 'MMM d, yyyy')} - {format(parseISO(program.endDate), 'MMM d, yyyy')}
                 </Typography>
-                <Typography variant='subtitle2' align='center' color='secondary.light'>
+                <Typography variant='subtitle1' align='center' color='secondary.light'>
                   {program.tagline}
                 </Typography>
-                <Typography variant='subtitle1'>
+                <Typography variant='h6'>
                   {`${program.teamsCount} teams | ${program.openRolesCount} open roles | ${program.mentorsAcceptedCount} mentors | ${program.menteesAcceptedCount} mentees`}
                 </Typography>
                 <Stack
@@ -130,13 +130,8 @@ const ProgramDetail = () => {
           }}
         >
           <TabContext value={value}>
-            <Box sx={{
-              backgroundColor: '#010A13',
-              color: '#fff',
-              borderBottom: 1,
-              borderColor: 'divider',
-            }}>
-              <TabList onChange={handleChange} textColor='inherit' aria-label='program tabs' centered>
+            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+              <TabList onChange={handleChange} aria-label='program tabs' centered>
                 <Tab label='S-Teams' value='1' />
                 <Tab label='Lead Mentors' value='2' />
                 <Tab label='About' value='3' />

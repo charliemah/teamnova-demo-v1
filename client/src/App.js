@@ -7,7 +7,6 @@ import Footer from './components/generic/Footer'
 
 const Navigation = lazy(() =>import('./routes/navigation'))
 const HomePage = lazy(() =>import('./routes/home'))
-const AskCharliePage = lazy(() =>import('./routes/ask-charlie'))
 const ProgramsRouter= lazy(() =>import('./routes/programs'))
 const TeamsRouter= lazy(() =>import('./routes/teams'))
 
@@ -28,7 +27,6 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Navigation />}>
           <Route index element={<HomePage />} />
-          <Route path='ask-charlie' element={<AskCharliePage />} />
           <Route path='programs/*' element={<ProgramsRouter />} />
           <Route path='teams/*' element={<TeamsRouter />} />
           <Route path='*' element={<Navigate to='/' />} />

@@ -54,7 +54,7 @@ const OpenRoleCard = ({ role }) => {
                 direction='row'
                 justifyContent='space-between'
               >
-                <ChipArray labels={role.topics} size='small' color='primary' variant='outlined'/>
+                <ChipArray labels={role.topics} size='small'/>
                 <ExpandMore
                   expand={expanded}
                   onClick={handleExpandClick}
