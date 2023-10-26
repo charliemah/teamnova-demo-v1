@@ -18,7 +18,7 @@ import { exampleProgKey } from '../../config'
 
 const titles = [
   'Collaborative Learning Over Code',
-  'Try TEAMNOVA for free'
+  'Try TEAMNOVA open-source solution for free?'
 ]
 const subtitles = [
   'THE TEAMNOVA WAY of',
@@ -147,15 +147,16 @@ const HomePage = () => {
           alignItems: 'center',
           px: { xs: 10, md: 20 },
           py: { xs: 5, md: 10 },
-          my: { xs: 5, md: 15 },
+          my: { xs: 5, md: 10 },
         }}
       >
         <Stack
-          direction='row'
+          direction='column'
           alignItems='center'
+          spacing={6}
           justifyContent='space-evenly'
         >
-          <Typography variant='h4' color='#010A13' sx={{ fontWeight: 'bold' }}>
+          <Typography variant='h5' color='#010A13' sx={{ fontWeight: 'bold' }}>
             {titles[1]}
           </Typography>
           <Button component={RouterLink} to={`/programs/${exampleProgKey}`} variant='contained' style={{ width: 240, height: 80, fontSize: '20px' }}>
