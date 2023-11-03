@@ -1,9 +1,10 @@
+import React from 'react'
 import Container from '@mui/material/Container'
 import Grid from '@mui/material/Grid'
 
 import ProgramCard from '../ProgramCard'
 
-const ProgramsGrid = ({programs}) => {
+const ProgramsGrid = ({ programs }) => {
   return (
     <Container sx={{ py: 12 }} maxWidth='lg'>
       <Grid container spacing={4}>

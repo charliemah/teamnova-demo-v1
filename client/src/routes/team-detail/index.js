@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { useParams, Link as RouterLink } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -16,15 +16,14 @@ import Container from '@mui/material/Container'
 import MentorsGrid from '../../components/team/MentorsGrid'
 import OpenRolesGrid from '../../components/team/OpenRolesGrid'
 
-function TeamDetail() {
-
+const TeamDetail = () => {
   const [value, setValue] = useState('1')
 
-  const handleChange = (e, newValue) => {
+  const handleChange = useCallback((e, newValue) => {
     setValue(newValue)
-  }
+  }, [])
 
-  let { teamKey } =  useParams()
+  const { teamKey } = useParams()
 
   const team = useSelector(state => state.teams.teamList.filter(team => team.key == teamKey)[0])
 
@@ -52,7 +51,7 @@ function TeamDetail() {
         sx={{
           bgcolor: 'background.paper',
           pt: 8,
-          pb: 6,
+          pb: 6
         }}
       >
         <Container maxWidth='sm'>
@@ -60,7 +59,7 @@ function TeamDetail() {
             sx={{
               display: 'flex',
               flexDirection: 'column',
-              alignItems: 'center',
+              alignItems: 'center'
             }}
           >
             <Avatar
@@ -139,7 +138,7 @@ function TeamDetail() {
               sx={{
                 bgcolor: '#42a5f5',
                 color: '#fff',
-                p: 18,
+                p: 18
               }}
             >
               <Container maxWidth='sm'>

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import { useParams, Link as RouterLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { format, parseISO } from 'date-fns'
@@ -19,10 +19,9 @@ import LeadMentorsGrid from '../../components/program/LeadMentorsGrid'
 import TeamsGrid from '../../components/team/TeamsGrid'
 
 const ProgramDetail = () => {
+  const { progKey } = useParams()
 
-  const { progKey } =  useParams()
-
-  const program = useSelector(state => state.programs.programList.filter(program => program.key === progKey)[0])
+  const program = useSelector(state => state.programs.programList.filter(program => program.key == progKey)[0])
 
   const teamList = useSelector(state => state.teams.teamList)
 
@@ -32,9 +31,9 @@ const ProgramDetail = () => {
 
   const [value, setValue] = useState('1')
 
-  const handleChange = (e, newValue) => {
-    setValue(newValue);
-  }
+  const handleChange = useCallback((e, newValue) => {
+    setValue(newValue)
+  }, [])
 
   return (
     <main>
@@ -47,7 +46,7 @@ const ProgramDetail = () => {
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
-          backgroundImage: `url(${backgroundImageUrl})`,
+          backgroundImage: `url(${backgroundImageUrl})`
         }}
       >
         <Box
@@ -57,7 +56,7 @@ const ProgramDetail = () => {
             bottom: 0,
             right: 0,
             left: 0,
-            backgroundColor: 'rgba(0,0,0,.3)',
+            backgroundColor: 'rgba(0,0,0,.3)'
           }}
         />
         <Grid container>
@@ -67,7 +66,7 @@ const ProgramDetail = () => {
                 position: 'relative',
                 px: { xs: 3, md: 12 },
                 pt: { xs: 6, md: 12 },
-                pb: 50,
+                pb: 50
               }}
             >
               <Stack
@@ -89,7 +88,7 @@ const ProgramDetail = () => {
                     {program.key.toUpperCase()}
                   </Button>
                 </Stack>
-                <Typography variant='h4'  align='center' color='inherit'>
+                <Typography variant='h4' align='center' color='inherit'>
                   {program.name}
                 </Typography>
                 <Typography variant='subtitle1'>
@@ -99,7 +98,7 @@ const ProgramDetail = () => {
                   {program.tagline}
                 </Typography>
                 <Typography variant='h6'>
-                  {`${program.teamsCount} teams | ${program.openRolesCount} open roles | ${program.mentorsAcceptedCount} mentors | ${program.menteesAcceptedCount} mentees`}
+                  {program.teamsCount} teams | {program.openRolesCount} open roles | {program.mentorsAcceptedCount} mentors | {program.menteesAcceptedCount} mentees
                 </Typography>
                 <Stack
                   direction='row'
@@ -111,7 +110,7 @@ const ProgramDetail = () => {
                     Discord
                   </Button>
                   <Button component={RouterLink} to={'/ask-charlie'} variant='contained'>
-                    Apply Now                   
+                    Apply Now
                   </Button>
                 </Stack>
               </Stack>
@@ -126,7 +125,7 @@ const ProgramDetail = () => {
             backgroundColor: 'grey.30',
             color: '#fff',
             mb: 20,
-            backgroundSize: 'cover',
+            backgroundSize: 'cover'
           }}
         >
           <TabContext value={value}>
@@ -149,7 +148,7 @@ const ProgramDetail = () => {
                   sx={{
                     bgcolor: '#002884',
                     color: '#fff',
-                    p: 6,
+                    p: 6
                   }}
                 >
                   <Typography variant='h6' color='inherit' paragraph>

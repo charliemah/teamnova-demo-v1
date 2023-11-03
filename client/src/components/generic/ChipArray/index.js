@@ -1,12 +1,13 @@
+import React from 'react'
 import { styled } from '@mui/material/styles'
 import Box from '@mui/material/Box'
 import Chip from '@mui/material/Chip'
 
 const ListItem = styled('li')(({ theme }) => ({
-  margin: theme.spacing(0.5),
+  margin: theme.spacing(0.5)
 }))
 
-const ChipArray = ({labels, size, color, variant}) => {
+const ChipArray = ({ labels, size, color, variant }) => {
   return (
     <Box
       sx={{
@@ -15,7 +16,7 @@ const ChipArray = ({labels, size, color, variant}) => {
         flexWrap: 'wrap',
         listStyle: 'none',
         p: 0.5,
-        m: 0,
+        m: 0
       }}
       component='ul'
     >

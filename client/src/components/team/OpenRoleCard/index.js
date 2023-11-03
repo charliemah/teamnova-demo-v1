@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useCallback } from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 
 import { styled } from '@mui/material/styles'
@@ -22,17 +22,16 @@ const ExpandMore = styled((props) => {
   transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
   marginLeft: 'auto',
   transition: theme.transitions.create('transform', {
-    duration: theme.transitions.duration.shortest,
-  }),
+    duration: theme.transitions.duration.shortest
+  })
 }))
 
 const OpenRoleCard = ({ role }) => {
-
   const [expanded, setExpanded] = React.useState(false)
 
-  const handleExpandClick = () => {
+  const handleExpandClick = useCallback(() => {
     setExpanded(!expanded)
-  }
+  }, [])
 
   return (
     <Grid item xs={12} sm={6} md={4}>
@@ -88,7 +87,7 @@ const OpenRoleCard = ({ role }) => {
           sx={{
             display: 'flex',
             justifyContent: 'center',
-            pb: 3,
+            pb: 3
           }}
         >
           <Stack

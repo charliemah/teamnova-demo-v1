@@ -1,10 +1,10 @@
+import React from 'react'
 import Container from '@mui/material/Container'
 import Grid from '@mui/material/Grid'
 
 import LeadMentorCard from '../LeadMentorCard'
 
-const LeadMentorsGrid = ({leadMentors}) => {
-
+const LeadMentorsGrid = ({ leadMentors }) => {
   return (
     <Container sx={{ py: 8 }} maxWidth='lg'>
       <Grid container spacing={4}>

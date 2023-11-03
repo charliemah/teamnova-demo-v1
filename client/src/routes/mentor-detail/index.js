@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import { useParams, Link as RouterLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
@@ -17,16 +17,14 @@ import ChipArray from '../../components/generic/ChipArray'
 import LinksGrid from '../../components/profile/LinksGrid'
 import ProjectsGrid from '../../components/profile/ProjectsGrid'
 
-
-function MentorDetail() {
-
+const MentorDetail = () => {
   const [value, setValue] = useState('1')
 
-  const handleChange = (e, newValue) => {
+  const handleChange = useCallback((e, newValue) => {
     setValue(newValue)
-  }
+  }, [])
 
-  let { teamKey, roleNumber } =  useParams()
+  const { teamKey, roleNumber } = useParams()
 
   const role = useSelector(state => state.roles.mentorList.filter(mentor => mentor.number == roleNumber)[0])
 
@@ -38,7 +36,7 @@ function MentorDetail() {
         sx={{
           bgcolor: 'background.paper',
           pt: 8,
-          pb: 6,
+          pb: 6
         }}
       >
         <Container maxWidth='sm'>

@@ -1,3 +1,4 @@
+import React from 'react'
 import Grid from '@mui/material/Grid'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
@@ -10,7 +11,6 @@ import Box from '@mui/material/Box'
 import ChipArray from '../../generic/ChipArray'
 
 const MenteeCard = ({ role }) => {
-
   return (
     <Grid item xs={12} sm={6} md={4}>
       <Card
@@ -28,7 +28,7 @@ const MenteeCard = ({ role }) => {
             justifyContent='space-evenly'
           >
             <Typography variant='subtitle1' color='secondary.light'>
-              {`${role.name} (${role.teamKey.toUpperCase()}-${role.number})`}
+              {role.name} ({role.teamKey.toUpperCase()}-{role.number})
             </Typography>
             <Stack
               direction='row'

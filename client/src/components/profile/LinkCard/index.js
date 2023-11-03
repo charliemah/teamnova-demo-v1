@@ -1,3 +1,4 @@
+import React from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 import Grid from '@mui/material/Grid'
 import Card from '@mui/material/Card'
@@ -7,7 +8,6 @@ import CardMedia from '@mui/material/CardMedia'
 import Typography from '@mui/material/Typography'
 
 const LinkCard = ({ link }) => {
-
   const assetsPath = require.context('../../../assets/images', false)
 
   return (
@@ -20,7 +20,7 @@ const LinkCard = ({ link }) => {
             component='div'
             sx={{
               // 16:9
-              pt: '56.25%',
+              pt: '56.25%'
             }}
             image={assetsPath(link.imageUrl)}
           />

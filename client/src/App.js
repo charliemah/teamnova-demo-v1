@@ -1,17 +1,16 @@
-import { useEffect, lazy, Suspense } from 'react'
+import React, { useEffect, lazy, Suspense } from 'react'
 import { useDispatch } from 'react-redux'
 import { Routes, Route, Navigate } from 'react-router-dom'
 
 import { exampleProgKey } from './config'
 import Footer from './components/generic/Footer'
 
-const Navigation = lazy(() =>import('./routes/navigation'))
-const HomePage = lazy(() =>import('./routes/home'))
-const ProgramsRouter= lazy(() =>import('./routes/programs'))
-const TeamsRouter= lazy(() =>import('./routes/teams'))
+const Navigation = lazy(() => import('./routes/navigation'))
+const HomePage = lazy(() => import('./routes/home'))
+const ProgramsRouter = lazy(() => import('./routes/programs'))
+const TeamsRouter = lazy(() => import('./routes/teams'))
 
 const App = () => {
-
   const dispatch = useDispatch()
 
   useEffect(() => {

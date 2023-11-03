@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useCallback } from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 
 import { styled } from '@mui/material/styles'
@@ -23,19 +23,18 @@ const ExpandMore = styled((props) => {
   transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
   marginLeft: 'auto',
   transition: theme.transitions.create('transform', {
-    duration: theme.transitions.duration.shortest,
-  }),
+    duration: theme.transitions.duration.shortest
+  })
 }))
 
 const ProjectCard = ({ project }) => {
-
   const assetsPath = require.context('../../../assets/images', false)
 
   const [expanded, setExpanded] = React.useState(false)
 
-  const handleExpandClick = () => {
+  const handleExpandClick = useCallback(() => {
     setExpanded(!expanded)
-  }
+  }, [])
 
   return (
     <Grid item xs={12} sm={6} md={4}>
@@ -46,14 +45,14 @@ const ProjectCard = ({ project }) => {
           component='div'
           sx={{
             // 16:9
-            pt: '56.25%',
+            pt: '56.25%'
           }}
           image={assetsPath(project.imageUrl)}
         />
         <CardContent>
           <Stack
             direction='column'
-          >          
+          >
             <Stack
               direction='row'
               justifyContent='space-between'

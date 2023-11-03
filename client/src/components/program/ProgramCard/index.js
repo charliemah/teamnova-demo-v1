@@ -1,3 +1,4 @@
+import React, {useMemo} from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 import { format, parseISO } from 'date-fns'
 import Grid from '@mui/material/Grid'
@@ -9,15 +10,14 @@ import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 
 const ProgramCard = ({ program }) => {
-
-  const leadMentors = program.leadMentors.filter((x) => x.claimed).map((x) => x.name).join(', ')
+  const leadMentors = useMemo(program.leadMentors.filter((x) => x.claimed).map((x) => x.name).join(', '))
 
   return (
     <Grid item xs={12} md={6}>
       <Card
         sx={{
           display: 'flex',
-          flexDirection: 'column',
+          flexDirection: 'column'
         }}
       >
         <CardContent>
@@ -37,7 +37,7 @@ const ProgramCard = ({ program }) => {
               {program.tagline}
             </Typography>
             <Typography variant='subtitle2' color='text.secondary'>
-              {`${program.teamsCount} teams | ${program.openRolesCount} open roles | ${program.mentorsAcceptedCount} mentors | ${program.menteesAcceptedCount} mentees`}
+              {program.teamsCount} teams | {program.openRolesCount} open roles | {program.mentorsAcceptedCount} mentors | {program.menteesAcceptedCount} mentees
             </Typography>
             <Stack
               direction='row'

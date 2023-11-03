@@ -1,4 +1,4 @@
-import { Fragment } from 'react'
+import React, { Fragment } from 'react'
 import { Outlet, Link as RouterLink } from 'react-router-dom'
 
 import Toolbar from '@mui/material/Toolbar'
@@ -8,8 +8,7 @@ import Button from '@mui/material/Button'
 
 import { logoUrl, exampleProgKey } from '../../config'
 
-function Navigation() {
-
+const Navigation = () => {
   const assetsPath = require.context('../../assets/images', false)
 
   return (
@@ -29,7 +28,7 @@ function Navigation() {
             />
           </Button>
         </Stack>
-        <Button component={RouterLink} to={`/programs/${exampleProgKey}`} style={{textTransform: 'none'}} variant='contained'>
+        <Button component={RouterLink} to={`/programs/${exampleProgKey}`} style={{ textTransform: 'none' }} variant='contained'>
           Demo
         </Button>
       </Toolbar>
@@ -39,5 +38,3 @@ function Navigation() {
 }
 
 export default Navigation
-
-

@@ -1,3 +1,4 @@
+import React from 'react'
 import Grid from '@mui/material/Grid'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
@@ -6,12 +7,11 @@ import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
 
 const LeadMentorCard = ({ leadMentor }) => {
-
   return (
     <Grid item xs={12} sm={6} md={4}>
       <Card
         sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
-      >  
+      >
         <Avatar
             src={leadMentor.profile.avatarUrl}
             sx={{ width: 'auto', height: 'auto' }}

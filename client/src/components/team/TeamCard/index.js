@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useCallback } from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 
 import { styled } from '@mui/material/styles'
@@ -26,17 +26,16 @@ const ExpandMore = styled((props) => {
   transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
   marginLeft: 'auto',
   transition: theme.transitions.create('transform', {
-    duration: theme.transitions.duration.shortest,
-  }),
+    duration: theme.transitions.duration.shortest
+  })
 }))
 
 const TeamCard = ({ team }) => {
-
   const [expanded, setExpanded] = React.useState(false)
 
-  const handleExpandClick = () => {
+  const handleExpandClick = useCallback(() => {
     setExpanded(!expanded)
-  }
+  }, [])
 
   const assetsPath = require.context('../../../assets/images', false)
 
@@ -44,7 +43,7 @@ const TeamCard = ({ team }) => {
     <Grid item xs={12} sm={6} md={4}>
       <Card
         sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
-      > 
+      >
         <CardHeader
           disableTypography
           avatar={
@@ -77,7 +76,7 @@ const TeamCard = ({ team }) => {
           component='div'
           sx={{
             // 16:9
-            pt: '56.25%',
+            pt: '56.25%'
           }}
           image={assetsPath(team.imageUrl)}
         />
@@ -126,7 +125,7 @@ const TeamCard = ({ team }) => {
           sx={{
             display: 'flex',
             justifyContent: 'center',
-            pb: 3,
+            pb: 3
           }}
         >
           <Stack
@@ -134,7 +133,7 @@ const TeamCard = ({ team }) => {
             spacing={2}
           >
             <Button size='small' variant='outlined'>Follow</Button>
-            <Button component={RouterLink} to={`/teams/${team.key}`} size='small' variant='contained'>Learn More</Button>
+            <Button component={RouterLink} to={`/teams/${team.key}`} size='small' variant='contained'>Meet the Team</Button>
           </Stack>
         </CardActions>
         <Collapse in={expanded} timeout='auto' unmountOnExit>

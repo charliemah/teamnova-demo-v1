@@ -1,9 +1,7 @@
-import * as React from 'react'
+import React from 'react'
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
-import Link from '@mui/material/Link'
-
 
 const title = 'Made in Vancouver with love'
 const note = '* This is a demonstration of what\'s possible with Teamnova-empowered open source mentorship programs.'
@@ -11,18 +9,12 @@ const note = '* This is a demonstration of what\'s possible with Teamnova-empowe
 const Copyright = () => {
   return (
     <Typography variant='body2' color='text.secondary' align='center'>
-      {'Copyright © '}
-      <Link color='inherit' href='https://teamnova.ca/'>
-        TeamnovaOSS
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
+      Copyright {new Date().getFullYear()} {' - '} TeamnovaOSS
     </Typography>
   )
 }
 
 const Footer = () => {
-
   return (
     <Box component='footer' sx={{ bgcolor: 'background.paper', py: 6 }}>
       <Container maxWidth='lg'>

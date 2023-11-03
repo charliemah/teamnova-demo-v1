@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 
 import Box from '@mui/material/Box'
@@ -18,13 +18,14 @@ import { exampleProgKey } from '../../config'
 
 const titles = [
   'Collaborative Learning Over Code',
-  'Try TEAMNOVA open-source solution for free?'
+  'What are the possibilities with THE TEAMNOVA WAY?'
 ]
 const subtitles = [
   'THE TEAMNOVA WAY of',
   'Democratizing',
   'Mentorship in Open Source',
-  'for the Future of Work'
+  'for the Future of Work',
+  'Try it free today?'
 ]
 const propositions = [
   ['1', 'Build a more diverse talent pipeline for your community', 'Enhance the inclusivity and vibrancy of your community by cultivating a more diverse talent pipeline.'],
@@ -48,20 +49,19 @@ const steam = [
   'Why S-Team?',
   'While traditional Open Source Mentorship Programs (OSMPs) are excellent, they often lack a structured approach for effective team collaboration.',
   'Why not create a new platform where mentors can help mentees improve both the hard and soft skills required for open source?',
-  'This is how the idea of the \'S-Team\' (Self-organizing Team) structure was born.',
+  'This is how the idea of the \'S-Team\' (Self-organizing Team) structure was born.'
 ]
 
 const HomePage = () => {
-
   const assetsPath = require.context('../../assets/images', false)
   const backgroundImageUrl1 = assetsPath('./collaborative_learning_1.jpg')
   const backgroundImageUrl2 = assetsPath('./collaborative_learning_2.jpg')
 
   const [value, setValue] = useState('1')
 
-  const handleChange = (e, newValue) => {
-    setValue(newValue);
-  }
+  const handleChange = useCallback((e, newValue) => {
+    setValue(newValue)
+  }, [])
 
   return (
     <Container maxWidth={false} disableGutters>
@@ -73,7 +73,7 @@ const HomePage = () => {
           alignItems: 'center',
           px: { xs: 5, md: 10 },
           py: { xs: 10, md: 20 },
-          my: 5,
+          my: 5
         }}
       >
         <Stack
@@ -107,9 +107,9 @@ const HomePage = () => {
           <TabContext value={value}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
               <TabList onChange={handleChange} textColor='inherit' aria-label='user tabs'>
-                <Tab label='Community Leader' style={{textTransform: 'none'}} value='1' />
-                <Tab label='Mentor' style={{textTransform: 'none'}} value='2' />
-                <Tab label='Mentee' style={{textTransform: 'none'}} value='3' />
+                <Tab label='Community Leader' style={{ textTransform: 'none' }} value='1' />
+                <Tab label='Mentor' style={{ textTransform: 'none' }} value='2' />
+                <Tab label='Mentee' style={{ textTransform: 'none' }} value='3' />
               </TabList>
             </Box>
             {propositions.map((proposition, i) => (
@@ -120,7 +120,7 @@ const HomePage = () => {
                   justifyContent='space-evenly'
                   sx={{
                     px: 6,
-                    py: 6,
+                    py: 6
                   }}
                 >
                   <Typography variant='h4' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
@@ -143,11 +143,11 @@ const HomePage = () => {
       <Box
         sx={{
           position: 'relative',
-          bgcolor:  'grey.30',
+          bgcolor: 'grey.30',
           alignItems: 'center',
           px: { xs: 10, md: 20 },
           py: { xs: 5, md: 10 },
-          my: { xs: 5, md: 10 },
+          my: { xs: 5, md: 10 }
         }}
       >
         <Stack
@@ -156,11 +156,14 @@ const HomePage = () => {
           spacing={6}
           justifyContent='space-evenly'
         >
-          <Typography variant='h5' color='#010A13' sx={{ fontWeight: 'bold' }}>
+          <Typography variant='h4' color='#010A13' sx={{ fontWeight: 'bold' }}>
             {titles[1]}
           </Typography>
-          <Button component={RouterLink} to={`/programs/${exampleProgKey}`} variant='contained' style={{ width: 240, height: 80, fontSize: '20px' }}>
-            Get Started Now
+          <Typography variant='h4' color='inherit'>
+            {subtitles[4]}
+          </Typography>
+          <Button component={RouterLink} to={`/programs/${exampleProgKey}`} variant='contained' style={{ textTransform: 'none', fontWeight: 'bold', width: 240, height: 80, fontSize: '30px' }}>
+            See a Demo
           </Button>
         </Stack>
       </Box>
@@ -177,9 +180,7 @@ const HomePage = () => {
               direction='column'
               spacing={3}
               justifyContent='space-evenly'
-              sx={{
-                p: 3,
-              }}
+              sx={{ p: 3 }}
             >
               <Typography variant='h4' color='primary.dark' sx={{ fontWeight: 'bold', lineHeight: '80px' }}>
                 {steam[0]}
@@ -204,7 +205,7 @@ const HomePage = () => {
           alignItems: 'center',
           px: { xs: 5, md: 10 },
           py: { xs: 10, md: 20 },
-          my: 5,
+          my: 5
         }}
       >
         <Stack
@@ -223,7 +224,7 @@ const HomePage = () => {
             {mission[2]} <Box color='primary.dark' display='inline'>{mission[3]}</Box> {mission[4]}
           </Typography>
           <Typography variant='h6' color='inherit'>
-            {subheaders[0]} <Box color='primary.light' display='inline'>{subheaders[1]} </Box> 
+            {subheaders[0]} <Box color='primary.light' display='inline'>{subheaders[1]} </Box>
           </Typography>
         </Stack>
       </Box>

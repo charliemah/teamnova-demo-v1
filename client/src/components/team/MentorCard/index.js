@@ -1,3 +1,4 @@
+import React, { useMemo } from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 
 import Grid from '@mui/material/Grid'
@@ -13,14 +14,13 @@ import Box from '@mui/material/Box'
 import ChipArray from '../../generic/ChipArray'
 
 const MentorCard = ({ role }) => {
-
-  const profile = role.isLeadMentor ? role.leadMentor.profile : role.mentor.profile
+  const profile = useMemo(() => role.isLeadMentor ? role.leadMentor.profile : role.mentor.profile, [])
 
   return (
     <Grid item xs={12} sm={6} md={4}>
       <Card
         sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
-      >  
+      >
         <Avatar
             src={profile.avatarUrl}
             sx={{ width: 'auto', height: 'auto' }}
@@ -62,7 +62,7 @@ const MentorCard = ({ role }) => {
           sx={{
             display: 'flex',
             justifyContent: 'center',
-            pb: 3,
+            pb: 3
           }}
         >
           <Stack
