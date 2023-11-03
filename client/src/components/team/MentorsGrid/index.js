@@ -4,8 +4,7 @@ import Grid from '@mui/material/Grid'
 
 import MentorCard from '../MentorCard'
 
-const MentorsGrid = ({roles}) => {
-
+const MentorsGrid = ({ roles }) => {
   return (
     <Container sx={{ py: 8 }} maxWidth='lg'>
       <Grid container spacing={4}>
