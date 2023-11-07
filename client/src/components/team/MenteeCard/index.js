@@ -64,7 +64,7 @@ const MenteeCard = ({ role }) => {
             spacing={2}
           >
             <Button size='small' variant='outlined'>Follow</Button>
-            <Button component={RouterLink} to={`/demo/teams/${role.teamKey}/mentees/${role.number}`} size='small' variant='contained'>Learn More</Button>
+            <Button component={RouterLink} to={`/teams/${role.teamKey}/mentees/${role.number}`} size='small' variant='contained'>Learn More</Button>
           </Stack>
         </CardActions>
       </Card>

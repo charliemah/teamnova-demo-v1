@@ -66,7 +66,7 @@ const MentorDetail = () => {
                 <Button color='inherit' variant='text' sx={{ minWidth: 0, px: 0 }}>
                   {role.name} | S-Team
                 </Button>
-                <Button component={RouterLink} to={`/demo/teams/${teamKey}`} color='primary' sx={{ minWidth: 0, px: 0 }}>
+                <Button component={RouterLink} to={`/teams/${teamKey}`} color='primary' sx={{ minWidth: 0, px: 0 }}>
                   {teamKey.toUpperCase()}
                 </Button>
               </Stack>
