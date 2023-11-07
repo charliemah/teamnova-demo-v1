@@ -18,17 +18,6 @@ import Container from '@mui/material/Container'
 import LeadMentorsGrid from '../../components/program/LeadMentorsGrid'
 import TeamsGrid from '../../components/team/TeamsGrid'
 
-const titles = [
-  'Collaborative Learning Over Code',
-  'What are the possibilities with THE TEAMNOVA WAY?'
-]
-const subtitles = [
-  'THE TEAMNOVA WAY of',
-  'Democratizing',
-  'Mentorship in Open Source',
-  'for the Future of Work'
-]
-
 const ProgramDetail = () => {
   const { progKey } = useParams()
 
@@ -37,7 +26,7 @@ const ProgramDetail = () => {
   const teamList = useSelector(state => state.teams.teamList)
 
   const assetsPath = require.context('../../assets/images', false)
-  const backgroundImageUrl3 = assetsPath(program.imageUrl)
+  const backgroundImageUrl = assetsPath(program.imageUrl)
 
   const [value, setValue] = useState('1')
 
@@ -47,40 +36,6 @@ const ProgramDetail = () => {
 
   return (
     <main>
-      <Box
-        sx={{
-          position: 'relative',
-          bgcolor: '#010A13',
-          color: '#fff',
-          alignItems: 'center',
-          p: { xs: 5, md: 10 },
-          mt: 5
-        }}
-      >
-        <Stack
-          direction='column'
-          alignItems='center'
-          spacing={6}
-          justifyContent='space-evenly'
-        >
-          <Typography variant='h3' color='primary.light' sx={{ fontWeight: 'bold', lineHeight: '80px' }} gutterBottom>
-            {titles[0]}
-          </Typography>
-          <Stack
-            direction='column'
-            alignItems='center'
-            spacing={2}
-            justifyContent='space-evenly'
-          >
-            <Typography variant='h5' color='inherit'>
-              {subtitles[0]}
-            </Typography>
-            <Typography variant='h5' color='inherit'>
-              {subtitles[1]} <Box color='primary.dark' display='inline'>{subtitles[2]}</Box> {subtitles[3]}
-            </Typography>
-          </Stack>
-        </Stack>
-      </Box>
       <Paper
         sx={{
           position: 'relative',
@@ -89,7 +44,7 @@ const ProgramDetail = () => {
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
-          backgroundImage: `url(${backgroundImageUrl3})`
+          backgroundImage: `url(${backgroundImageUrl})`
         }}
       >
         <Box
@@ -167,7 +122,7 @@ const ProgramDetail = () => {
               </TabList>
             </Box>
             <TabPanel value='1'>
-              <Typography variant='h4' color='primary.dark'>
+              <Typography variant='h4' align='center' color='primary.dark'>
                 Explore the S-Teams
               </Typography>
               <TeamsGrid teams={teamList}/>

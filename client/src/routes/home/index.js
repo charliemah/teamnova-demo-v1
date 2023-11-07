@@ -33,8 +33,8 @@ const propositions = [
   ['1', 'Leverage your soft skills to future-proof your career', 'Prepare for a complex future by developing a growth mindset, harnessing soft skills and embracing collaborative learning.'],
   ['2', 'Help more mentees in a more engaged and effective way', 'Foster self-organization and informal learning within a Scrum team to support a greater number of mentees.']
 ]
-const whyTeamMentorship = [
-  'Why Team Mentorship?',
+const whySTeam = [
+  'Why S-Team?',
   'While traditional Open Source Mentorship Programs (OSMPs) are excellent, they often lack a structured approach for effective team collaboration.',
   'Why not create a new platform where mentors can help mentees improve both the hard and soft skills required for open source?',
   'This is how the idea of the \'S-Team\' (Self-organizing Team) structure was born.'
@@ -140,6 +140,10 @@ const HomePage = () => {
           </Stack>
         </Stack>
       </Box>
+      <Typography variant='h4' align='center' color='primary.dark'>
+        Example S-Teams
+      </Typography>
+      <TeamsGrid teams={exampleTeams}/>
       <Card
         sx={{ display: 'flex', flexDirection: 'row' }}
       >
@@ -156,16 +160,16 @@ const HomePage = () => {
               sx={{ p: 3 }}
             >
               <Typography variant='h4' color='primary.dark' sx={{ fontWeight: 'bold', lineHeight: '80px' }}>
-                {whyTeamMentorship[0]}
+                {whySTeam[0]}
               </Typography>
               <Typography variant='h6' color='inherit'>
-                {whyTeamMentorship[1]}
+                {whySTeam[1]}
               </Typography>
               <Typography variant='h6' color='primary.dark'>
-                {whyTeamMentorship[2]}
+                {whySTeam[2]}
               </Typography>
               <Typography variant='h6' color='inherit'>
-                {whyTeamMentorship[3]}
+                {whySTeam[3]}
               </Typography>
             </Stack>
         </CardContent>
@@ -192,10 +196,6 @@ const HomePage = () => {
           </Button>
         </Stack>
       </Box>
-      <Typography variant='h4' color='primary.dark'>
-        Example S-Teams
-      </Typography>
-      <TeamsGrid teams={exampleTeams}/>
       <Box
         sx={{
           position: 'relative',
