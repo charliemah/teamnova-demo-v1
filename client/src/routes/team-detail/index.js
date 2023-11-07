@@ -78,7 +78,7 @@ const TeamDetail = () => {
                 spacing={0.5}
                 sx={{ pt: 3 }}
               >
-                <Button component={RouterLink} to={`/programs/${team.program.key}`} color='primary' sx={{ minWidth: 0, px: 0 }}>
+                <Button component={RouterLink} to={`/demo/programs/${team.program.key}`} color='primary' sx={{ minWidth: 0, px: 0 }}>
                   {team.program.key.toUpperCase()}
                 </Button>
                 <Button size='small' color='inherit' variant='text' sx={{ minWidth: 0, px: 0 }}>

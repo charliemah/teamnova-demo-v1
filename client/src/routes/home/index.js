@@ -11,7 +11,6 @@ import TabContext from '@mui/lab/TabContext'
 import TabList from '@mui/lab/TabList'
 import TabPanel from '@mui/lab/TabPanel'
 import Card from '@mui/material/Card'
-import CardMedia from '@mui/material/CardMedia'
 import CardContent from '@mui/material/CardContent'
 
 import { exampleProgKey } from '../../config'
@@ -24,8 +23,7 @@ const subtitles = [
   'THE TEAMNOVA WAY of',
   'Democratizing',
   'Mentorship in Open Source',
-  'for the Future of Work',
-  'Try it free today?'
+  'for the Future of Work'
 ]
 const propositions = [
   ['1', 'Build a more diverse talent pipeline for your community', 'Enhance the inclusivity and vibrancy of your community by cultivating a more diverse talent pipeline.'],
@@ -45,18 +43,7 @@ const mission = [
   'for More Students'
 ]
 
-const steam = [
-  'Why S-Team?',
-  'While traditional Open Source Mentorship Programs (OSMPs) are excellent, they often lack a structured approach for effective team collaboration.',
-  'Why not create a new platform where mentors can help mentees improve both the hard and soft skills required for open source?',
-  'This is how the idea of the \'S-Team\' (Self-organizing Team) structure was born.'
-]
-
 const HomePage = () => {
-  const assetsPath = require.context('../../assets/images', false)
-  const backgroundImageUrl1 = assetsPath('./collaborative_learning_1.jpg')
-  const backgroundImageUrl2 = assetsPath('./collaborative_learning_2.jpg')
-
   const [value, setValue] = useState('1')
 
   const handleChange = useCallback((e, newValue) => {
@@ -100,6 +87,28 @@ const HomePage = () => {
           </Stack>
         </Stack>
       </Box>
+      <Box
+        sx={{
+          position: 'relative',
+          bgcolor: 'grey.30',
+          alignItems: 'center',
+          p: { xs: 5, md: 10 }
+        }}
+      >
+        <Stack
+          direction='column'
+          alignItems='center'
+          spacing={6}
+          justifyContent='space-evenly'
+        >
+          <Typography variant='h5' color='#010A13' sx={{ fontWeight: 'bold' }}>
+            {titles[1]}
+          </Typography>
+          <Button component={RouterLink} to={`/demo/programs/${exampleProgKey}`} target='_blank' variant='contained' style={{ textTransform: 'none', fontWeight: 'bold', width: 240, height: 80, fontSize: '30px' }}>
+            See a Demo
+          </Button>
+        </Stack>
+      </Box>
       <Card
         sx={{ display: 'flex', flexDirection: 'row' }}
       >
@@ -133,68 +142,6 @@ const HomePage = () => {
               </TabPanel>
             ))}
           </TabContext>
-        </CardContent>
-        <CardMedia
-          component='img'
-          sx={{ width: '50%', display: { xs: 'none', sm: 'block' } }}
-          image={backgroundImageUrl1}
-        />
-      </Card>
-      <Box
-        sx={{
-          position: 'relative',
-          bgcolor: 'grey.30',
-          alignItems: 'center',
-          px: { xs: 10, md: 20 },
-          py: { xs: 5, md: 10 },
-          my: { xs: 5, md: 10 }
-        }}
-      >
-        <Stack
-          direction='column'
-          alignItems='center'
-          spacing={6}
-          justifyContent='space-evenly'
-        >
-          <Typography variant='h4' color='#010A13' sx={{ fontWeight: 'bold' }}>
-            {titles[1]}
-          </Typography>
-          <Typography variant='h4' color='inherit'>
-            {subtitles[4]}
-          </Typography>
-          <Button component={RouterLink} to={`/programs/${exampleProgKey}`} variant='contained' style={{ textTransform: 'none', fontWeight: 'bold', width: 240, height: 80, fontSize: '30px' }}>
-            See a Demo
-          </Button>
-        </Stack>
-      </Box>
-      <Card
-        sx={{ display: 'flex', flexDirection: 'row' }}
-      >
-        <CardMedia
-          component='img'
-          sx={{ width: '50%', display: { xs: 'none', sm: 'block' } }}
-          image={backgroundImageUrl2}
-        />
-        <CardContent sx={{ flex: 1 }}>
-            <Stack
-              direction='column'
-              spacing={3}
-              justifyContent='space-evenly'
-              sx={{ p: 3 }}
-            >
-              <Typography variant='h4' color='primary.dark' sx={{ fontWeight: 'bold', lineHeight: '80px' }}>
-                {steam[0]}
-              </Typography>
-              <Typography variant='h6' color='inherit'>
-                {steam[1]}
-              </Typography>
-              <Typography variant='h6' color='primary.dark'>
-                {steam[2]}
-              </Typography>
-              <Typography variant='h6' color='inherit'>
-                {steam[3]}
-              </Typography>
-            </Stack>
         </CardContent>
       </Card>
       <Box

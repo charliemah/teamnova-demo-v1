@@ -1,5 +1,4 @@
 import React, { useCallback } from 'react'
-import { Link as RouterLink } from 'react-router-dom'
 
 import { styled } from '@mui/material/styles'
 import Grid from '@mui/material/Grid'
@@ -95,7 +94,7 @@ const OpenRoleCard = ({ role }) => {
             spacing={2}
           >
             <Button size='small' variant='outlined'>Save</Button>
-            <Button component={RouterLink} to={'/signin'} size='small' variant='contained'>Apply Now</Button>
+            <Button size='small' variant='contained'>Apply Now</Button>
           </Stack>
         </CardActions>
         <Collapse in={expanded} timeout='auto' unmountOnExit>
