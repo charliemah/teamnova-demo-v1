@@ -67,7 +67,7 @@ const MentorDetail = () => {
                   {role.name} | S-Team
                 </Button>
                 <Button component={RouterLink} to={`/teams/${teamKey}`} color='primary' sx={{ minWidth: 0, px: 0 }}>
-                  {teamKey.toUpperCase()}
+                  {teamKey}
                 </Button>
               </Stack>
               <Typography component='h1' variant='h5' color='text.primary'>

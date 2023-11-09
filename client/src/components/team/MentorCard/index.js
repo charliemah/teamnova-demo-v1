@@ -69,8 +69,8 @@ const MentorCard = ({ role }) => {
             direction='row'
             spacing={2}
           >
-            <Button size='small' variant='outlined'>Follow</Button>
-            <Button component={RouterLink} to={`/teams/${role.teamKey}/mentors/${role.number}`} size='small' variant='contained'>Learn More</Button>
+            <Button variant='outlined'>Follow</Button>
+            <Button component={RouterLink} to={`/teams/${role.teamKey}/mentors/${role.number}`} target='_blank' variant='contained'>Learn More</Button>
           </Stack>
         </CardActions>
       </Card>

@@ -1,7 +1,6 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 
-import { styled } from '@mui/material/styles'
 import Grid from '@mui/material/Grid'
 import Card from '@mui/material/Card'
 import CardHeader from '@mui/material/CardHeader'
@@ -9,34 +8,14 @@ import CardMedia from '@mui/material/CardMedia'
 import CardContent from '@mui/material/CardContent'
 import CardActions from '@mui/material/CardActions'
 import Stack from '@mui/material/Stack'
-import Collapse from '@mui/material/Collapse'
 import Button from '@mui/material/Button'
-import IconButton from '@mui/material/IconButton'
 import Avatar from '@mui/material/Avatar'
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 
 import ChipArray from '../../generic/ChipArray'
 
-const ExpandMore = styled((props) => {
-  const { expand, ...other } = props
-  return <IconButton {...other} />
-})(({ theme, expand }) => ({
-  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-  marginLeft: 'auto',
-  transition: theme.transitions.create('transform', {
-    duration: theme.transitions.duration.shortest
-  })
-}))
-
 const TeamCard = ({ team }) => {
-  const [expanded, setExpanded] = React.useState(false)
-
-  const handleExpandClick = useCallback(() => {
-    setExpanded(!expanded)
-  }, [])
-
   const assetsPath = require.context('../../../assets/images', false)
 
   return (
@@ -92,14 +71,6 @@ const TeamCard = ({ team }) => {
               <Typography gutterBottom variant='h5' component='h2'>
                 {team.name}
               </Typography>
-              <ExpandMore
-                expand={expanded}
-                onClick={handleExpandClick}
-                aria-expanded={expanded}
-                aria-label='show more'
-              >
-                <ExpandMoreIcon />
-              </ExpandMore>
             </Stack>
             <Typography variant='subtitle2' color='text.secondary'>
                 {team.tagline}
@@ -132,20 +103,10 @@ const TeamCard = ({ team }) => {
             direction='row'
             spacing={2}
           >
-            <Button size='small' variant='outlined'>Follow</Button>
-            <Button component={RouterLink} to={`/teams/${team.key}`} size='small' variant='contained'>Meet the Team</Button>
+            <Button variant='outlined'>Follow</Button>
+            <Button component={RouterLink} to={`/teams/${team.key}`} target='_blank' variant='contained'>Meet the Team</Button>
           </Stack>
         </CardActions>
-        <Collapse in={expanded} timeout='auto' unmountOnExit>
-          <CardContent>
-            <Typography variant='subtitle1'>
-              Mission
-            </Typography>
-            <Typography variant='subtitle2' color='text.secondary' paragraph>
-              {team.mission}
-            </Typography>
-          </CardContent>
-        </Collapse>
       </Card>
     </Grid>
   )

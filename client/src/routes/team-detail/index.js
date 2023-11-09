@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { useParams, Link as RouterLink } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 import Box from '@mui/material/Box'
@@ -78,11 +78,8 @@ const TeamDetail = () => {
                 spacing={0.5}
                 sx={{ pt: 3 }}
               >
-                <Button component={RouterLink} to={`/programs/${team.program.key}`} color='primary' sx={{ minWidth: 0, px: 0 }}>
-                  {team.program.key.toUpperCase()}
-                </Button>
                 <Button size='small' color='inherit' variant='text' sx={{ minWidth: 0, px: 0 }}>
-                  S-TEAM {team.key.toUpperCase()}
+                  S-TEAM {team.key}
                 </Button>
               </Stack>
               <Typography component='h1' variant='h5' color='text.primary'>

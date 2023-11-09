@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react'
-import { useParams, Link as RouterLink } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { format, parseISO } from 'date-fns'
 
@@ -17,6 +17,11 @@ import Container from '@mui/material/Container'
 
 import LeadMentorsGrid from '../../components/program/LeadMentorsGrid'
 import TeamsGrid from '../../components/team/TeamsGrid'
+
+const propositions = [
+  ['1', 'Leverage your soft skills to future-proof your career', 'Prepare for a complex future by developing a growth mindset, harnessing soft skills and embracing collaborative learning.'],
+  ['2', 'Help more mentees in a more engaged and effective way', 'Foster self-organization and informal learning within a Scrum team to support a greater number of mentees.']
+]
 
 const ProgramDetail = () => {
   const { progKey } = useParams()
@@ -36,6 +41,36 @@ const ProgramDetail = () => {
 
   return (
     <main>
+      <Container maxWidth={false} disableGutters>
+        <TabContext value={value}>
+          <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+            <TabList onChange={handleChange} textColor='inherit' aria-label='user tabs'>
+              <Tab label='Mentee' style={{ textTransform: 'none' }} value='1' />
+              <Tab label='Mentor' style={{ textTransform: 'none' }} value='2' />
+            </TabList>
+          </Box>
+          {propositions.map((proposition, i) => (
+            <TabPanel key={i} value={proposition[0]}>
+              <Stack
+                direction='column'
+                spacing={3}
+                justifyContent='space-evenly'
+                sx={{
+                  pt: 3,
+                  pb: 6
+                }}
+              >
+                <Typography variant='h4' color='primary.dark' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
+                  {proposition[1]}
+                </Typography>
+                <Typography variant='h6' color='#010A13'>
+                  {proposition[2]}
+                </Typography>
+              </Stack>
+            </TabPanel>
+          ))}
+        </TabContext>
+      </Container>
       <Paper
         sx={{
           position: 'relative',
@@ -79,11 +114,8 @@ const ProgramDetail = () => {
                   spacing={0.5}
                   sx={{ pt: 3 }}
                 >
-                  <Button component={RouterLink} to={program.repoUrl} target='_blank' color='primary'>
-                    {`${program.openSourceProj} | ${program.openSourceOrg}`}
-                  </Button>
                   <Button sx={{ minWidth: 0, px: 0 }}>
-                    {program.key.toUpperCase()}
+                    Program {program.key}
                   </Button>
                 </Stack>
                 <Typography variant='h4' align='center' color='inherit'>
@@ -123,7 +155,7 @@ const ProgramDetail = () => {
             </Box>
             <TabPanel value='1'>
               <Typography variant='h4' align='center' color='primary.dark'>
-                Explore the S-Teams
+                Explore the Self-organizing Teams
               </Typography>
               <TeamsGrid teams={teamList}/>
             </TabPanel>

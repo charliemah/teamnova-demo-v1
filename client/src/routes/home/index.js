@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link as RouterLink } from 'react-router-dom'
 
@@ -7,10 +7,6 @@ import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import Button from '@mui/material/Button'
-import Tab from '@mui/material/Tab'
-import TabContext from '@mui/lab/TabContext'
-import TabList from '@mui/lab/TabList'
-import TabPanel from '@mui/lab/TabPanel'
 import Card from '@mui/material/Card'
 import CardMedia from '@mui/material/CardMedia'
 import CardContent from '@mui/material/CardContent'
@@ -19,6 +15,9 @@ import TeamsGrid from '../../components/team/TeamsGrid'
 import { exampleProgKey } from '../../config'
 
 const titles = [
+  'Why',
+  'TEAMNOVA?',
+  'We help open source projects grow diverse talent pipelines through team mentoring.',
   'Collaborative Learning Over Code',
   'What are the possibilities with THE TEAMNOVA WAY?'
 ]
@@ -29,15 +28,11 @@ const subtitles = [
   'for the Future of Work',
   'Try it free today?'
 ]
-const propositions = [
-  ['1', 'Leverage your soft skills to future-proof your career', 'Prepare for a complex future by developing a growth mindset, harnessing soft skills and embracing collaborative learning.'],
-  ['2', 'Help more mentees in a more engaged and effective way', 'Foster self-organization and informal learning within a Scrum team to support a greater number of mentees.']
-]
 const whySTeam = [
-  'Why S-Team?',
-  'While traditional Open Source Mentorship Programs (OSMPs) are excellent, they often lack a structured approach for effective team collaboration.',
+  'Why Self-organizing Team?',
+  'While traditional Open Source Mentorship Programs are excellent, they often lack a structured approach for effective team collaboration.',
   'Why not create a new platform where mentors can help mentees improve both the hard and soft skills required for open source?',
-  'This is how the idea of the \'S-Team\' (Self-organizing Team) structure was born.'
+  'This is how the idea of the Self-organizing Team(S-Team) structure was born.'
 ]
 const subheaders = [
   'Inspired by Larry Page\'s Experiment -',
@@ -59,46 +54,31 @@ const HomePage = () => {
 
   const exampleTeams = useSelector(state => state.teams.teamList.slice(0, 3))
 
-  const [value, setValue] = useState('1')
-
-  const handleChange = useCallback((e, newValue) => {
-    setValue(newValue)
-  }, [])
-
   return (
     <Container maxWidth={false} disableGutters>
       <Card
         sx={{ display: 'flex', flexDirection: 'row' }}
       >
-        <CardContent sx={{ flex: 1 }}>
-          <TabContext value={value}>
-            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-              <TabList onChange={handleChange} textColor='inherit' aria-label='user tabs'>
-                <Tab label='Mentee' style={{ textTransform: 'none' }} value='1' />
-                <Tab label='Mentor' style={{ textTransform: 'none' }} value='2' />
-              </TabList>
-            </Box>
-            {propositions.map((proposition, i) => (
-              <TabPanel key={i} value={proposition[0]}>
-                <Stack
-                  direction='column'
-                  spacing={3}
-                  justifyContent='space-evenly'
-                  sx={{
-                    px: 6,
-                    py: 6
-                  }}
-                >
-                  <Typography variant='h4' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
-                    {proposition[1]}
-                  </Typography>
-                  <Typography variant='h6'>
-                    {proposition[2]}
-                  </Typography>
-                </Stack>
-              </TabPanel>
-            ))}
-          </TabContext>
+        <CardContent sx={{ flex: 1, p: 6 }}>
+          <Stack
+            direction='column'
+            spacing={3}
+            justifyContent='space-evenly'
+            sx={{ my: 6 }}
+          >
+            <Typography variant='h2' color='primary.light' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
+              {titles[0]}
+            </Typography>
+            <Typography variant='h3' color='primary.dark' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
+              {titles[1]}
+            </Typography>
+            <Typography variant='h5' color='#010A13'>
+              {titles[2]}
+            </Typography>
+          </Stack>
+          <Button component={RouterLink} to={`/programs/${exampleProgKey}`} target='_blank' variant='contained'>
+            See a Live Demo
+          </Button>
         </CardContent>
         <CardMedia
           component='img'
@@ -123,7 +103,7 @@ const HomePage = () => {
           justifyContent='space-evenly'
         >
           <Typography variant='h3' color='primary.light' sx={{ fontWeight: 'bold', lineHeight: '80px' }} gutterBottom>
-            {titles[0]}
+            {titles[3]}
           </Typography>
           <Stack
             direction='column'
@@ -141,7 +121,7 @@ const HomePage = () => {
         </Stack>
       </Box>
       <Typography variant='h4' align='center' color='primary.dark'>
-        Example S-Teams
+        Example Self-organizing Teams
       </Typography>
       <TeamsGrid teams={exampleTeams}/>
       <Card
@@ -189,10 +169,10 @@ const HomePage = () => {
           justifyContent='space-evenly'
         >
           <Typography variant='h5' color='#010A13' sx={{ fontWeight: 'bold' }}>
-            {titles[1]}
+            {titles[4]}
           </Typography>
-          <Button component={RouterLink} to={`/programs/${exampleProgKey}`} target='_blank' variant='contained' style={{ textTransform: 'none', fontWeight: 'bold', width: 240, height: 80, fontSize: '30px' }}>
-            See a Demo
+          <Button component={RouterLink} to={`/programs/${exampleProgKey}`} target='_blank' variant='contained' style={{ textTransform: 'none', fontWeight: 'bold', width: 300, height: 80, fontSize: '30px' }}>
+            See a Live Demo
           </Button>
         </Stack>
       </Box>
