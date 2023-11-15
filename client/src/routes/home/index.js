@@ -10,41 +10,39 @@ import Button from '@mui/material/Button'
 import Card from '@mui/material/Card'
 import CardMedia from '@mui/material/CardMedia'
 import CardContent from '@mui/material/CardContent'
+import Grid from '@mui/material/Grid'
 
-import TeamsGrid from '../../components/team/TeamsGrid'
+import TeamCard from '../../components/team/TeamCard'
 import { exampleProgKey } from '../../config'
 
 const titles = [
   'Why',
   'TEAMNOVA?',
   'We help open source projects grow diverse talent pipelines through team mentoring.',
-  'Collaborative Learning Over Code',
-  'What are the possibilities with THE TEAMNOVA WAY?'
+  'Collaborative Learning Over Code'
 ]
 const subtitles = [
   'THE TEAMNOVA WAY of',
-  'Democratizing',
-  'Mentorship in Open Source',
-  'for the Future of Work',
-  'Try it free today?'
+  'Democratizing Mentorship in Open Source for the Future of Work',
+  'Example Self-organizing Teams'
 ]
 const whySTeam = [
-  'Why Self-organizing Team?',
+  'Why',
+  'Self-organizing Team?',
   'While traditional Open Source Mentorship Programs are excellent, they often lack a structured approach for effective team collaboration.',
   'Why not create a new platform where mentors can help mentees improve both the hard and soft skills required for open source?',
   'This is how the idea of the Self-organizing Team(S-Team) structure was born.'
 ]
 const subheaders = [
+  'Free and Open Source Indefinitely',
   'Inspired by Larry Page\'s Experiment -',
   'Google Summer of Code (GSoC)',
   'Made in Vancouver with love'
 ]
 const mission = [
-  'Team TEAMNOVA is on a MISSION to Make',
+  'TEAMNOVA is on a MISSION to Make',
   'Mentorship in Open Source',
-  'More',
-  'ACCESSIBLE',
-  'for More Students'
+  'More ACCESSIBLE for More Students'
 ]
 
 const HomePage = () => {
@@ -66,13 +64,13 @@ const HomePage = () => {
             justifyContent='space-evenly'
             sx={{ my: 6 }}
           >
-            <Typography variant='h2' color='primary.light' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
+            <Typography variant='h2' color='primary.light' sx={{ fontWeight: 'bold', lineHeight: '40px' }}>
               {titles[0]}
             </Typography>
-            <Typography variant='h3' color='primary.dark' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
+            <Typography variant='h3' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
               {titles[1]}
             </Typography>
-            <Typography variant='h5' color='#010A13'>
+            <Typography variant='h5' color='primary.dark' sx={{ fontWeight: 'bold', lineHeight: '30px' }}>
               {titles[2]}
             </Typography>
           </Stack>
@@ -89,17 +87,17 @@ const HomePage = () => {
       <Box
         sx={{
           position: 'relative',
-          bgcolor: '#010A13',
+          bgcolor: '#12161A',
           color: '#fff',
           alignItems: 'center',
-          p: { xs: 5, md: 10 },
-          my: 5
+          p: { xs: 3, md: 6 },
+          mt: 3
         }}
       >
         <Stack
           direction='column'
           alignItems='center'
-          spacing={6}
+          spacing={3}
           justifyContent='space-evenly'
         >
           <Typography variant='h3' color='primary.light' sx={{ fontWeight: 'bold', lineHeight: '80px' }} gutterBottom>
@@ -115,15 +113,38 @@ const HomePage = () => {
               {subtitles[0]}
             </Typography>
             <Typography variant='h5' color='inherit'>
-              {subtitles[1]} <Box color='primary.dark' display='inline'>{subtitles[2]}</Box> {subtitles[3]}
+              {subtitles[1]}
             </Typography>
           </Stack>
         </Stack>
       </Box>
-      <Typography variant='h4' align='center' color='primary.dark'>
-        Example Self-organizing Teams
-      </Typography>
-      <TeamsGrid teams={exampleTeams}/>
+      <Box
+        sx={{
+          position: 'relative',
+          bgcolor: '#161A1F',
+          color: '#fff',
+          alignItems: 'center',
+          p: 3,
+          mb: 3
+        }}
+      >
+        <Box
+          sx={{
+            position: 'relative',
+            alignItems: 'center',
+            py: 1
+          }}
+        >
+          <Typography variant='h5' align='center' color='primary.dark' gutterBottom>
+            {subtitles[2]}
+          </Typography>
+        </Box>
+        <Grid container spacing={2}>
+          {exampleTeams.map((team) => (
+            <TeamCard key={team.key} team={team} />
+          ))}
+        </Grid>
+      </Box>
       <Card
         sx={{ display: 'flex', flexDirection: 'row' }}
       >
@@ -139,17 +160,17 @@ const HomePage = () => {
               justifyContent='space-evenly'
               sx={{ p: 3 }}
             >
-              <Typography variant='h4' color='primary.dark' sx={{ fontWeight: 'bold', lineHeight: '80px' }}>
-                {whySTeam[0]}
+              <Typography variant='h4' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '80px' }}>
+                <Box color='primary.light' display='inline'>{whySTeam[0]} </Box> {whySTeam[1]}
               </Typography>
               <Typography variant='h6' color='inherit'>
-                {whySTeam[1]}
-              </Typography>
-              <Typography variant='h6' color='primary.dark'>
                 {whySTeam[2]}
               </Typography>
-              <Typography variant='h6' color='inherit'>
+              <Typography variant='h5' color='primary.dark' sx={{ fontWeight: 'bold', lineHeight: '30px' }}>
                 {whySTeam[3]}
+              </Typography>
+              <Typography variant='h6' color='inherit'>
+                {whySTeam[4]}
               </Typography>
             </Stack>
         </CardContent>
@@ -157,34 +178,11 @@ const HomePage = () => {
       <Box
         sx={{
           position: 'relative',
-          bgcolor: 'grey.30',
-          alignItems: 'center',
-          p: { xs: 5, md: 10 }
-        }}
-      >
-        <Stack
-          direction='column'
-          alignItems='center'
-          spacing={6}
-          justifyContent='space-evenly'
-        >
-          <Typography variant='h5' color='#010A13' sx={{ fontWeight: 'bold' }}>
-            {titles[4]}
-          </Typography>
-          <Button component={RouterLink} to={`/programs/${exampleProgKey}`} target='_blank' variant='contained' style={{ textTransform: 'none', fontWeight: 'bold', width: 300, height: 80, fontSize: '30px' }}>
-            See a Live Demo
-          </Button>
-        </Stack>
-      </Box>
-      <Box
-        sx={{
-          position: 'relative',
-          bgcolor: '#010A13',
+          bgcolor: '#12161A',
           color: '#fff',
           alignItems: 'center',
-          px: { xs: 5, md: 10 },
-          py: { xs: 10, md: 20 },
-          my: 5
+          p: { xs: 3, md: 6 },
+          my: 3
         }}
       >
         <Stack
@@ -193,17 +191,20 @@ const HomePage = () => {
           spacing={3}
           justifyContent='space-evenly'
         >
-          <Typography variant='h4' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }} gutterBottom>
+          <Typography variant='h5' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }} gutterBottom>
             {mission[0]}
           </Typography>
-          <Typography variant='h4' color='primary.light' sx={{ fontWeight: 'bold', lineHeight: '50px' }} gutterBottom>
+          <Typography variant='h3' color='primary' sx={{ fontWeight: 'bold', lineHeight: '50px' }} gutterBottom>
             {mission[1]}
           </Typography>
-          <Typography variant='h4' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }} gutterBottom>
-            {mission[2]} <Box color='primary.dark' display='inline'>{mission[3]}</Box> {mission[4]}
+          <Typography variant='h5' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }} gutterBottom>
+            {mission[2]}
+          </Typography>
+          <Typography variant='h6' color='primary.light'>
+            {subheaders[0]}
           </Typography>
           <Typography variant='h6' color='inherit'>
-            {subheaders[0]} <Box color='primary.light' display='inline'>{subheaders[1]} </Box>
+            {subheaders[1]} <Box color='primary.light' display='inline'>{subheaders[2]} </Box>
           </Typography>
         </Stack>
       </Box>

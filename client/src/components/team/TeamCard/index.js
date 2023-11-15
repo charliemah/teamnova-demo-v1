@@ -73,7 +73,7 @@ const TeamCard = ({ team }) => {
               </Typography>
             </Stack>
             <Typography variant='subtitle2' color='text.secondary'>
-                {team.tagline}
+                {team.tagline.toUpperCase()}
             </Typography>
             <ChipArray labels={team.topics} size='small' color='primary' variant='outlined'/>
             <Stack
@@ -103,7 +103,6 @@ const TeamCard = ({ team }) => {
             direction='row'
             spacing={2}
           >
-            <Button variant='outlined'>Follow</Button>
             <Button component={RouterLink} to={`/teams/${team.key}`} target='_blank' variant='contained'>Meet the Team</Button>
           </Stack>
         </CardActions>
