@@ -30,8 +30,7 @@ const whySTeam = [
   'Why',
   'Self-organizing Team?',
   'While traditional Open Source Mentorship Programs are excellent, they often lack a structured approach for effective team collaboration.',
-  'Why not create a new platform where mentors can help mentees improve both the hard and soft skills required for open source?',
-  'This is how the idea of the Self-organizing Team(S-Team) structure was born.'
+  'With TEAMNOVA open source software solution, We help mentors and mentees in maximizing the benefits of collaborative learning through the innovative design of the Self-organizing Team (S-Team) structure.'
 ]
 const subheaders = [
   'Free and Open Source Indefinitely',
@@ -168,9 +167,6 @@ const HomePage = () => {
               </Typography>
               <Typography variant='h5' color='primary.dark' sx={{ fontWeight: 'bold', lineHeight: '30px' }}>
                 {whySTeam[3]}
-              </Typography>
-              <Typography variant='h6' color='inherit'>
-                {whySTeam[4]}
               </Typography>
             </Stack>
         </CardContent>
