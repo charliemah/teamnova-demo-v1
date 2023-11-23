@@ -9,7 +9,7 @@ const note = '* This is a demonstration of what\'s possible with Teamnova-empowe
 const Copyright = () => {
   return (
     <Typography variant='body2' color='text.secondary' align='center'>
-      Copyright {new Date().getFullYear()} {' - '} TeamnovaOSS
+      Copyright {new Date().getFullYear()} {' - '} NovoOSS
     </Typography>
   )
 }

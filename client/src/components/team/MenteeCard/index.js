@@ -59,13 +59,7 @@ const MenteeCard = ({ role }) => {
             pb: 3,
           }}
         >
-          <Stack
-            direction='row'
-            spacing={2}
-          >
-            <Button variant='outlined'>Follow</Button>
-            <Button component={RouterLink} to={`/teams/${role.teamKey}/mentees/${role.number}`} target='_blank' variant='contained'>Learn More</Button>
-          </Stack>
+          <Button component={RouterLink} to={`/teams/${role.teamKey}/mentees/${role.number}`} target='_blank' variant='contained'>Learn More</Button>
         </CardActions>
       </Card>
     </Grid>

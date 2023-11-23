@@ -19,7 +19,7 @@ import LeadMentorsGrid from '../../components/program/LeadMentorsGrid'
 import TeamsGrid from '../../components/team/TeamsGrid'
 
 const propositions = [
-  ['1', 'Leverage your soft skills to future-proof your career', 'Prepare for a complex future by developing a growth mindset, harnessing soft skills and embracing collaborative learning.'],
+  ['1', 'Leverage your soft skills to future-proof your career', 'Prepare for a complex future by developing a growth mindset, embracing collaborative learning and harnessing soft skills.'],
   ['2', 'Help more mentees in a more engaged and effective way', 'Foster self-organization and informal learning within a Scrum team to support a greater number of mentees.']
 ]
 
@@ -56,8 +56,7 @@ const ProgramDetail = () => {
                 spacing={3}
                 justifyContent='space-evenly'
                 sx={{
-                  pt: 3,
-                  pb: 6
+                  py: 3
                 }}
               >
                 <Typography variant='h4' color='primary.dark' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
@@ -67,6 +66,7 @@ const ProgramDetail = () => {
                   {proposition[2]}
                 </Typography>
               </Stack>
+              <Button variant='contained'>Apply Now</Button>
             </TabPanel>
           ))}
         </TabContext>
@@ -79,7 +79,8 @@ const ProgramDetail = () => {
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
-          backgroundImage: `url(${backgroundImageUrl})`
+          backgroundImage: `url(${backgroundImageUrl})`,
+          mt: 6
         }}
       >
         <Box

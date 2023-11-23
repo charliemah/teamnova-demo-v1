@@ -89,13 +89,7 @@ const OpenRoleCard = ({ role }) => {
             pb: 3
           }}
         >
-          <Stack
-            direction='row'
-            spacing={2}
-          >
-            <Button size='small' variant='outlined'>Save</Button>
-            <Button size='small' variant='contained'>Apply Now</Button>
-          </Stack>
+          <Button size='small' variant='contained'>Apply Now</Button>
         </CardActions>
         <Collapse in={expanded} timeout='auto' unmountOnExit>
           <CardContent>

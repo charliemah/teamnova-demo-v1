@@ -99,12 +99,7 @@ const TeamCard = ({ team }) => {
             pb: 3
           }}
         >
-          <Stack
-            direction='row'
-            spacing={2}
-          >
-            <Button component={RouterLink} to={`/teams/${team.key}`} target='_blank' variant='contained'>Meet the Team</Button>
-          </Stack>
+          <Button component={RouterLink} to={`/teams/${team.key}`} target='_blank' variant='contained'>Meet the Team</Button>
         </CardActions>
       </Card>
     </Grid>

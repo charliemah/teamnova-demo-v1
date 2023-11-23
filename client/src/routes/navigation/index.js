@@ -13,7 +13,7 @@ const Navigation = () => {
 
   return (
     <Fragment>
-      <Toolbar sx={{ borderBottom: 1, borderColor: 'divider' }} disableGutters>
+      <Toolbar sx={{ borderBottom: 1, borderColor: 'divider', py: 1.5 }} disableGutters>
         <Stack
           direction='row'
           spacing={3}
