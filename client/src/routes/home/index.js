@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link as RouterLink } from 'react-router-dom'
 
+import CssBaseline from '@mui/material/CssBaseline'
 import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
@@ -20,8 +21,8 @@ const titles = [
   'Teamnova?',
   'Team Mentoring?',
   'Collaborative Learning Over Code',
-  'Teamnova is on a mission to make mentorship in open source',
-  'More ACCESSIBLE for More Students'
+  'We\'re on a mission to make mentorship in open source',
+  'more accessible for more students.'
 ]
 const subtitles = [
   'We help open source projects grow self-organizing teams through collaborative mentoring.',
@@ -33,9 +34,9 @@ const paragraphs = [
   'With our innovative team mentoring solution, we help mentors and mentees maximize the benefits of collaborative learning within self-organizing teams.'
 ]
 const subheaders = [
-  'Free and Open Source Indefinitely',
   'Inspired by Larry Page\'s Experiment -',
   'Google Summer of Code (GSoC)',
+  'Free and Open Source Indefinitely',
   'Made in Vancouver with love'
 ]
 
@@ -48,42 +49,58 @@ const HomePage = () => {
 
   return (
     <Container maxWidth={false} disableGutters>
-      <Card
-        sx={{ display: 'flex', flexDirection: 'row' }}
-      >
-        <CardContent sx={{ flex: 1, px: 3, py: 12 }}>
-          <Stack
-            direction='column'
-            spacing={3}
-            justifyContent='space-evenly'
-            sx={{ my: 3 }}
+      <Grid container sx={{ height: '60vh' }}>
+        <CssBaseline />
+        <Grid item xs={12} md={7}>
+          <Box
+            sx={{
+              position: 'relative',
+              alignItems: 'center',
+              p: { xs: 3, md: 6 },
+              my: 3
+            }}
           >
             <Stack
               direction='column'
-              spacing={1.5}
+              spacing={3}
               justifyContent='space-evenly'
+              sx={{ py: 3 }}
             >
-              <Typography variant='h2' color='primary.light' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
-                {titles[0]}
-              </Typography>
-              <Typography variant='h2' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
-                {titles[1]}
+              <Stack
+                direction='column'
+                spacing={1.5}
+                justifyContent='space-evenly'
+              >
+                <Typography variant='h2' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
+                  {titles[0]}
+                </Typography>
+                <Typography variant='h2' color='primary' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
+                  {titles[1]}
+                </Typography>
+              </Stack>
+              <Typography variant='h5' color='inherit' sx={{ lineHeight: '30px' }}>
+                {subtitles[0]}
               </Typography>
             </Stack>
-            <Typography variant='h5' color='primary.dark' sx={{ lineHeight: '30px' }}>
-              {subtitles[0]}
-            </Typography>
-          </Stack>
-          <Button component={RouterLink} to={`/programs/${exampleProgKey}`} target='_blank' variant='contained'>
-            See a Live Demo
-          </Button>
-        </CardContent>
-        <CardMedia
-          component='img'
-          sx={{ width: '50%', display: { xs: 'none', sm: 'block' } }}
-          image={backgroundImageUrl1}
+            <Button component={RouterLink} to={`/programs/${exampleProgKey}`} target='_blank' variant='contained'>
+              See a Live Demo
+            </Button>
+          </Box>
+        </Grid>
+        <Grid
+          item
+          xs={false}
+          md={5}
+          sx={{
+            backgroundImage: `url(${backgroundImageUrl1})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundColor: (t) =>
+              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
         />
-      </Card>
+      </Grid>
       <Box
         sx={{
           position: 'relative',
@@ -100,7 +117,7 @@ const HomePage = () => {
           spacing={3}
           justifyContent='space-evenly'
         >
-          <Typography variant='h3' color='primary.light' sx={{ fontWeight: 'bold', lineHeight: '50px' }} gutterBottom>
+          <Typography variant='h3' color='primary' sx={{ fontWeight: 'bold', lineHeight: '50px' }} gutterBottom>
             {titles[3]}
           </Typography>
           <Stack
@@ -122,7 +139,7 @@ const HomePage = () => {
           color: '#fff',
           alignItems: 'center',
           p: 3,
-          pb: 6,
+          pb: 9,
           mb: 9
         }}
       >
@@ -133,7 +150,7 @@ const HomePage = () => {
             py: 1
           }}
         >
-          <Typography variant='h5' align='center' color='primary.dark' gutterBottom>
+          <Typography variant='h5' align='center' color='primary' gutterBottom>
             {subtitles[2]}
           </Typography>
         </Box>
@@ -163,17 +180,17 @@ const HomePage = () => {
               spacing={1.5}
               justifyContent='space-evenly'
             >
-              <Typography variant='h3' color='primary.light' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
+              <Typography variant='h3' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
                 {titles[0]}
               </Typography>
-              <Typography variant='h3' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
+              <Typography variant='h3' color='primary' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
                 {titles[2]}
               </Typography>
             </Stack>
-            <Typography variant='h5' color='primary.dark' sx={{ lineHeight: '30px' }}>
+            <Typography variant='h6' color='inherit' sx={{ lineHeight: '25px' }}>
               {paragraphs[0]}
             </Typography>
-            <Typography variant='h5' color='primary.dark' sx={{ lineHeight: '30px' }}>
+            <Typography variant='h6' color='inherit' sx={{ lineHeight: '25px' }}>
               {paragraphs[1]}
             </Typography>
           </Stack>
@@ -195,17 +212,17 @@ const HomePage = () => {
           spacing={3}
           justifyContent='space-evenly'
         >
-          <Typography variant='h5' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }} gutterBottom>
+          <Typography variant='h6' color='inherit'>
+            {subheaders[0]} <Box color='primary' display='inline'> {subheaders[1]} </Box>
+          </Typography>
+          <Typography variant='h4' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }} gutterBottom>
             {titles[4]}
           </Typography>
           <Typography variant='h4' color='primary' sx={{ fontWeight: 'bold', lineHeight: '50px' }} gutterBottom>
             {titles[5]}
           </Typography>
-          <Typography variant='h6' color='primary.light'>
-            {subheaders[0]}
-          </Typography>
           <Typography variant='h6' color='inherit'>
-            {subheaders[1]} <Box color='primary.light' display='inline'>{subheaders[2]} </Box>
+            {subheaders[2]}
           </Typography>
         </Stack>
       </Box>
