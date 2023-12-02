@@ -34,19 +34,14 @@ const TeamCard = ({ team }) => {
             <Stack
               direction='column'
             >
-              <Stack
-                direction='row'
-                spacing={1}
-              >
-                <Typography variant='subtitle2'>
-                  {team.owner.profile.name}
-                </Typography>
-                <Typography variant='body2' color='text.secondary'>
-                  Product Owner
-                </Typography>
-              </Stack>
+              <Typography variant='subtitle1'>
+                {team.owner.profile.name}
+              </Typography>
               <Typography variant='subtitle2' color='text.secondary'>
-                {team.owner.profile.location}({team.owner.profile.timezone})
+                Product Owner
+              </Typography>
+              <Typography variant='body2' color='text.secondary'>
+                {team.owner.profile.location.toUpperCase()}({team.owner.profile.timezone})
               </Typography>
             </Stack>
           }
