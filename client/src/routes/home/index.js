@@ -22,16 +22,17 @@ const titles = [
   'more accessible for more students.'
 ]
 const subtitles = [
-  'We help open source projects grow self-organizing teams through collaborative mentoring.',
+  'We empower open source projects with sustainable advantages in their contributor pipelines.',
+  'We help mentors and mentees maximize the benefits of collaborative learning within self-organizing teams.',
   'The Teamnova Way of Democratizing Mentorship in Open Source',
-  'Featured Self-organizing Teams',
-  'We help mentors and mentees maximize the benefits of collaborative learning within self-organizing teams.'
+  'Featured Self-organizing Teams'
 ]
 
 const subheaders = [
+  'Free and Open Source Indefinitely',
   'Inspired by Larry Page\'s Experiment -',
   'Google Summer of Code (GSoC)',
-  'Free and Open Source Indefinitely',
+  'Google Summer of Code (GSoC), as one of the most prestigious open source mentorship programs, is highly competitive. According to 2023 statistics, out of 43,765 applicants and 7,723 proposals submitted, only 967 GSoC contributors were accepted.',
   'Made in Vancouver with love'
 ]
 
@@ -111,19 +112,15 @@ const HomePage = () => {
           spacing={3}
           justifyContent='space-evenly'
         >
-          <Typography variant='h3' color='primary' sx={{ fontWeight: 'bold', lineHeight: '50px' }} gutterBottom>
-            {titles[3]}
+          <Typography variant='subtitle1' color='primary'>
+            {subheaders[0].toUpperCase()}
           </Typography>
-          <Stack
-            direction='column'
-            alignItems='center'
-            spacing={2}
-            justifyContent='space-evenly'
-          >
-            <Typography variant='h5' color='inherit'>
-              {subtitles[1]}
-            </Typography>
-          </Stack>
+          <Typography variant='h4' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }} gutterBottom>
+            {titles[4]}
+          </Typography>
+          <Typography variant='h4' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }} gutterBottom>
+            {titles[5]}
+          </Typography>
         </Stack>
       </Box>
       <Box
@@ -132,27 +129,23 @@ const HomePage = () => {
           bgcolor: '#161A1F',
           color: '#fff',
           alignItems: 'center',
-          p: 3,
-          pb: 9,
+          p: 6,
           mb: 9
         }}
       >
-        <Box
-          sx={{
-            position: 'relative',
-            alignItems: 'center',
-            py: 1
-          }}
+        <Stack
+          direction='column'
+          alignItems='center'
+          spacing={3}
+          justifyContent='space-evenly'
         >
-          <Typography variant='h5' align='center' color='primary' gutterBottom>
-            {subtitles[2]}
+          <Typography variant='subtitle1' color='primary'>
+            {subheaders[1].toUpperCase()} {subheaders[2]}
           </Typography>
-        </Box>
-        <Grid container spacing={2}>
-          {featuredTeams.map((team) => (
-            <TeamCard key={team.key} team={team} />
-          ))}
-        </Grid>
+          <Typography variant='subtitle1' align='center' color='inherit' gutterBottom>
+            {subheaders[3]}
+          </Typography>
+        </Stack>
       </Box>
       <Grid container sx={{ height: '60vh' }}>
         <CssBaseline />
@@ -196,7 +189,7 @@ const HomePage = () => {
                 </Typography>
               </Stack>
               <Typography variant='h5' color='inherit' sx={{ lineHeight: '30px' }}>
-                {subtitles[3]}
+                {subtitles[1]}
               </Typography>
             </Stack>
             <Button size='large'>
@@ -212,7 +205,7 @@ const HomePage = () => {
           color: '#fff',
           alignItems: 'center',
           p: { xs: 3, md: 6 },
-          my: 9
+          mt: 9
         }}
       >
         <Stack
@@ -221,19 +214,48 @@ const HomePage = () => {
           spacing={3}
           justifyContent='space-evenly'
         >
-          <Typography variant='subtitle1' color='primary'>
-            {subheaders[0].toUpperCase()} {subheaders[1]}
+          <Typography variant='h3' color='primary' sx={{ fontWeight: 'bold', lineHeight: '50px' }} gutterBottom>
+            {titles[3]}
           </Typography>
-          <Typography variant='h4' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }} gutterBottom>
-            {titles[4]}
-          </Typography>
-          <Typography variant='h4' color='primary' sx={{ fontWeight: 'bold', lineHeight: '50px' }} gutterBottom>
-            {titles[5]}
-          </Typography>
-          <Typography variant='subtitle1' color='inherit'>
-            {subheaders[2].toUpperCase()}
-          </Typography>
+          <Stack
+            direction='column'
+            alignItems='center'
+            spacing={2}
+            justifyContent='space-evenly'
+          >
+            <Typography variant='h5' color='inherit'>
+              {subtitles[2]}
+            </Typography>
+          </Stack>
         </Stack>
+      </Box>
+      <Box
+        sx={{
+          position: 'relative',
+          bgcolor: '#161A1F',
+          color: '#fff',
+          alignItems: 'center',
+          p: 3,
+          pb: 9,
+          mb: 9
+        }}
+      >
+        <Box
+          sx={{
+            position: 'relative',
+            alignItems: 'center',
+            py: 1
+          }}
+        >
+          <Typography variant='h5' align='center' color='primary' gutterBottom>
+            {subtitles[3]}
+          </Typography>
+        </Box>
+        <Grid container spacing={2}>
+          {featuredTeams.map((team) => (
+            <TeamCard key={team.key} team={team} />
+          ))}
+        </Grid>
       </Box>
     </Container>
   )
