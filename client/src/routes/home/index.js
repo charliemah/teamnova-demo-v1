@@ -112,13 +112,13 @@ const HomePage = () => {
           spacing={3}
           justifyContent='space-evenly'
         >
-          <Typography variant='subtitle1' color='primary'>
+          <Typography variant='subtitle1' color='inherit'>
             {subheaders[0].toUpperCase()}
           </Typography>
-          <Typography variant='h4' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }} gutterBottom>
+          <Typography variant='h4' color='primary' sx={{ fontWeight: 'bold', lineHeight: '50px' }} gutterBottom>
             {titles[4]}
           </Typography>
-          <Typography variant='h4' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }} gutterBottom>
+          <Typography variant='h4' color='primary' sx={{ fontWeight: 'bold', lineHeight: '50px' }} gutterBottom>
             {titles[5]}
           </Typography>
         </Stack>
@@ -142,7 +142,7 @@ const HomePage = () => {
           <Typography variant='subtitle1' color='primary'>
             {subheaders[1].toUpperCase()} {subheaders[2]}
           </Typography>
-          <Typography variant='subtitle1' align='center' color='inherit' gutterBottom>
+          <Typography variant='h6' align='center' color='inherit' gutterBottom>
             {subheaders[3]}
           </Typography>
         </Stack>
@@ -247,7 +247,7 @@ const HomePage = () => {
             py: 1
           }}
         >
-          <Typography variant='h5' align='center' color='primary' gutterBottom>
+          <Typography variant='h5' align='center' color='inherit' gutterBottom>
             {subtitles[3]}
           </Typography>
         </Box>
