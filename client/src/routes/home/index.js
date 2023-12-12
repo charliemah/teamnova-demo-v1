@@ -22,7 +22,9 @@ const titles = [
   'more accessible for more students.'
 ]
 const subtitles = [
-  'We empower open source projects with sustainable advantages in their contributor pipelines.',
+  'We leverage open source to give students a disproportionate advantage in lifelong employability.',
+  'We leverage open source to help universities and employers bridge the skills gap between education and work.',
+  'We empower large open source projects with highly flexible software-powered solutions for high quality mentorship at scale.',
   'We help mentors and mentees maximize the benefits of collaborative learning within self-organizing teams.',
   'The Teamnova Way of Democratizing Mentorship in Open Source',
   'Featured Self-organizing Teams'
@@ -45,7 +47,7 @@ const HomePage = () => {
 
   return (
     <Container maxWidth={false} disableGutters>
-      <Grid container sx={{ height: '60vh' }}>
+      <Grid container sx={{ height: '60vh', mb: 9 }}>
         <CssBaseline />
         <Grid item xs={12} md={7}>
           <Box
@@ -66,7 +68,7 @@ const HomePage = () => {
                 spacing={1.5}
                 justifyContent='space-evenly'
               >
-                <Typography variant='h2' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
+                <Typography variant='h2' color='primary' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
                   {titles[0]}
                 </Typography>
                 <Typography variant='h2' color='primary' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
@@ -77,9 +79,7 @@ const HomePage = () => {
                 {subtitles[0]}
               </Typography>
             </Stack>
-            <Button component={RouterLink} to={`/programs/${exampleProgKey}`} target='_blank' size='large' variant='contained'>
-              See a Live Demo
-            </Button>
+            <Button size='large'>Learn More</Button>
           </Box>
         </Grid>
         <Grid
@@ -95,6 +95,91 @@ const HomePage = () => {
             backgroundPosition: 'center'
           }}
         />
+      </Grid>
+      <Grid container sx={{ height: '60vh', mb: 9 }}>
+        <CssBaseline />
+        <Grid
+          item
+          xs={false}
+          md={5}
+          sx={{
+            backgroundImage: `url(${backgroundImageUrl2})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundColor: (t) =>
+              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
+        />
+        <Grid item xs={12} md={7}>
+          <Box
+            sx={{
+              position: 'relative',
+              alignItems: 'center',
+              p: { xs: 3, md: 8 }
+            }}
+          >
+            <Stack
+              direction='column'
+              spacing={3}
+              justifyContent='space-evenly'
+              sx={{ py: 3 }}
+            >
+              <Stack
+                direction='column'
+                spacing={1.5}
+                justifyContent='space-evenly'
+              >
+                <Typography variant='h2' color='primary' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
+                  {titles[0]}
+                </Typography>
+                <Typography variant='h2' color='primary' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
+                  {titles[1]}
+                </Typography>
+              </Stack>
+              <Typography variant='h5' color='inherit' sx={{ lineHeight: '30px' }}>
+                {subtitles[1]}
+              </Typography>
+            </Stack>
+            <Button size='large'>Learn More</Button>
+          </Box>
+        </Grid>
+      </Grid>
+      <Grid container sx={{ height: '50vh' }}>
+        <Grid item xs={12}>
+          <Box
+            sx={{
+              position: 'relative',
+              alignItems: 'center',
+              p: { xs: 3, md: 8 }
+            }}
+          >
+            <Stack
+              direction='column'
+              spacing={6}
+              justifyContent='center'
+              sx={{ py: 3 }}
+            >
+              <Typography variant='h2' align='center' color='primary' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
+                {titles[0]} {titles[1]}
+              </Typography>
+              <Typography variant='h4' align='center' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '40px' }}>
+                {subtitles[2]}
+              </Typography>
+            </Stack>
+            <Stack
+              direction='row'
+              spacing={2}
+              justifyContent='center'
+              sx={{ py: 2 }}
+            >
+              <Button size='large'>Learn More</Button>
+              <Button align='center' component={RouterLink} to={`/programs/${exampleProgKey}`} target='_blank' size='large' variant='contained'>
+                See a Live Demo
+              </Button>
+            </Stack>
+          </Box>
+        </Grid>
       </Grid>
       <Box
         sx={{
@@ -147,22 +232,8 @@ const HomePage = () => {
           </Typography>
         </Stack>
       </Box>
-      <Grid container sx={{ height: '60vh' }}>
-        <CssBaseline />
-        <Grid
-          item
-          xs={false}
-          md={5}
-          sx={{
-            backgroundImage: `url(${backgroundImageUrl2})`,
-            backgroundRepeat: 'no-repeat',
-            backgroundColor: (t) =>
-              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }}
-        />
-        <Grid item xs={12} md={7}>
+      <Grid container sx={{ height: '50vh' }}>
+        <Grid item xs={12}>
           <Box
             sx={{
               position: 'relative',
@@ -172,29 +243,17 @@ const HomePage = () => {
           >
             <Stack
               direction='column'
-              spacing={3}
+              spacing={6}
               justifyContent='space-evenly'
               sx={{ py: 3 }}
             >
-              <Stack
-                direction='column'
-                spacing={1.5}
-                justifyContent='space-evenly'
-              >
-                <Typography variant='h2' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
-                  {titles[0]}
-                </Typography>
-                <Typography variant='h2' color='primary' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
-                  {titles[2]}
-                </Typography>
-              </Stack>
-              <Typography variant='h5' color='inherit' sx={{ lineHeight: '30px' }}>
-                {subtitles[1]}
+              <Typography variant='h2' align='center' color='primary' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
+                {titles[0]} {titles[2]}
+              </Typography>
+              <Typography variant='h4' align='center' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '40px' }}>
+                {subtitles[3]}
               </Typography>
             </Stack>
-            <Button size='large'>
-              Learn More
-            </Button>
           </Box>
         </Grid>
       </Grid>
@@ -224,7 +283,7 @@ const HomePage = () => {
             justifyContent='space-evenly'
           >
             <Typography variant='h5' color='inherit'>
-              {subtitles[2]}
+              {subtitles[4]}
             </Typography>
           </Stack>
         </Stack>
@@ -248,7 +307,7 @@ const HomePage = () => {
           }}
         >
           <Typography variant='h5' align='center' color='inherit' gutterBottom>
-            {subtitles[3]}
+            {subtitles[5]}
           </Typography>
         </Box>
         <Grid container spacing={2}>
