@@ -13,7 +13,7 @@ const Navigation = () => {
 
   return (
     <Fragment>
-      <Toolbar sx={{ borderBottom: 1, borderColor: 'divider', py: 1.5 }} disableGutters>
+      <Toolbar sx={{ borderBottom: 1, borderColor: 'divider', py: 1.5 }} >
         <Stack
           direction='row'
           spacing={3}
@@ -29,7 +29,7 @@ const Navigation = () => {
           </Button>
         </Stack>
         <Button component={RouterLink} to={`/programs/${exampleProgKey}`} style={{ textTransform: 'none' }} variant='contained'>
-          Live Demo
+          Request A Demo
         </Button>
       </Toolbar>
       <Outlet />

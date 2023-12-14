@@ -10,6 +10,9 @@ import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import Button from '@mui/material/Button'
 import Grid from '@mui/material/Grid'
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import CardMedia from '@mui/material/CardMedia'
 
 import TeamCard from '../../components/team/TeamCard'
 import { exampleProgKey } from '../../config'
@@ -23,38 +26,47 @@ const titles = [
   'large open source projects ',
   'with highly flexible software-powered solutions for ',
   'high quality mentorship at scale',
+  '.',
   'We\'re on a mission to make mentorship in open source',
   'more accessible for more students',
-  'What is',
-  'Teamnova?',
-  'We leverage open source to help universities and employers bridge the skills gap between education and work.',
+  '.',
+  'We leverage open source to help universities and employers ',
+  'bridge the skills gap between education and work',
+  '.',
+  'Mentorship programs in open source are critical for the growth and development of the open source community, and the LFX Mentorship program is no exception.',
   'Why',
-  'Team Mentoring?',
-  'Collaborative Learning Over Code'
+  'Mentoring at Scale?',
+  'Collaborative Learning Over Code',
+  'Why',
+  'Self-organizing Team?'
 ]
 const subtitles = [
   'Give students a disproportionate advantage in lifelong employability.',
-  'Teamnova is an A.Team-like online platform for mentorship in open source. The primary purpose of this open source project is to help university students cope with the challenges in the current tight hiring climate by working on exciting open source projects.',
-  'We help mentors and mentees maximize the benefits of collaborative learning within self-organizing teams.',
-  'The Teamnova Way of Democratizing Mentorship in Open Source',
+  'Inspired by the great success of Google Summer of Code (GSoC)',
+  'Why We Need Open Source Mentorship Programs at the Linux Foundation',
+  'The Teamnova way of high quality mentorship at scale',
   'Featured Self-organizing Teams'
 ]
 
 const subheaders = [
-  'Inspired by Larry Page\'s Experiment -',
+  'Inspired by the complex experiment initiated by Larry Page in 2005 -',
   'Google Summer of Code (GSoC)',
   'Made in Vancouver with love',
-  'Free and Open Source Indefinitely'
+  'Free and Open Source Indefinitely',
+  'Mentorship in Open Source | Linux Foundation Research'
 ]
 
 const paragraphs = [
+  'Teamnova is an A.Team-like online platform for mentorship in open source. The primary purpose of this open source project is to help university students cope with the challenges in the current tight hiring climate by working on exciting open source projects.',
+  '"Google Summer of Code began in 2005 as a complex experiment with a simple goal: helping students find work related to their academic pursuits during their school holidays. Larry Page, one of Google\'s co-founders, was pondering the age-old problem of scholastic backsliding ..."',
+  'Why not create a new platform where mentors can help mentees improve both the hard and soft skills required for open source?',
   'Google Summer of Code (GSoC), as one of the most prestigious open source mentorship programs, is highly competitive. According to 2023 statistics, out of 43,765 applicants and 7,723 proposals submitted, only 967 GSoC contributors were accepted.',
-  'Why not create a new platform where mentors can help mentees improve both the hard and soft skills required for open source?'
+  'We help mentors and mentees maximize the benefits of collaborative learning within self-organizing teams.'
 ]
 
 const HomePage = () => {
   const assetsPath = require.context('../../assets/images', false)
-  const backgroundImageUrl1 = assetsPath('./default_program_thumbnail.jpg')
+  const backgroundImageUrl1 = assetsPath('./vancouver_wallpaper_1.jpg')
   const backgroundImageUrl2 = assetsPath('./collaborative_learning_1.jpg')
   const backgroundImageUrl3 = assetsPath('./collaborative_learning_2.jpg')
 
@@ -62,38 +74,6 @@ const HomePage = () => {
 
   return (
     <Container maxWidth={false} disableGutters>
-      <Box
-        sx={{
-          position: 'relative',
-          bgcolor: '#12161A',
-          color: '#fff',
-          alignItems: 'center',
-          p: { xs: 3, md: 6 },
-          pt: { xs: 6, md: 12 }
-        }}
-      >
-        <Stack
-          direction='column'
-          alignItems='center'
-          spacing={3}
-          justifyContent='space-evenly'
-        >
-          <Typography variant='h3' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '60px' }} gutterBottom>
-            {titles[0]}
-          </Typography>
-          <Typography variant='h3' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '60px' }} gutterBottom>
-            {titles[1]} <Box color='primary.light' display='inline'>{titles[2]}</Box> {titles[3]}
-          </Typography>
-          <Typography variant='h5' align='center' color='inherit' sx={{ lineHeight: '40px' }}>
-            {subtitles[0]}
-          </Typography>
-        </Stack>
-        <Box textAlign='center' sx={{ p: 3 }} >
-          <Button component={RouterLink} to={`/programs/${exampleProgKey}`} target='_blank' size='large' variant='contained'>
-            See a Live Demo
-          </Button>
-        </Box>
-      </Box>
       <Paper
         sx={{
           position: 'relative',
@@ -101,7 +81,7 @@ const HomePage = () => {
           color: '#fff',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
+          backgroundPosition: 'center 70%',
           backgroundImage: `url(${backgroundImageUrl1})`
         }}
       >
@@ -109,29 +89,73 @@ const HomePage = () => {
         <Box
           sx={{
             position: 'relative',
-            pt: { xs: 3, md: 12 },
-            pb: { xs: 3, md: 30 }
+            alignItems: 'center',
+            mx: 12
           }}
         >
-          <Grid container>
-            <Grid item md={7}>
+          <Box
+            sx={{
+              position: 'relative',
+              bgcolor: 'deepOrange.800',
+              color: '#fff',
+              opacity: 0.8,
+              alignItems: 'center',
+              p: { xs: 3, md: 6 }
+            }}
+          >
+            <Box
+              sx={{
+                position: 'relative',
+                bgcolor: '#12161A',
+                color: '#fff',
+                opacity: 0.95,
+                p: 3,
+                m: 6
+              }}
+            >
               <Stack
-              direction='column'
-              spacing={1.5}
-              sx={{ pl: 6, pr: 3, pb: 18 }}
+                direction='column'
+                alignItems='center'
+                spacing={3}
               >
-                <Typography variant='h6' color='inherit'>
-                  {subheaders[0].toUpperCase()} <Box color='primary.light' display='inline'>{subheaders[1]}</Box>
+                <Typography variant='h3' align='center' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '60px' }} gutterBottom>
+                  {titles[0]}
                 </Typography>
-                <Typography variant='h6' color='inherit'>
+                <Typography variant='h3' align='center' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '60px' }} gutterBottom>
+                  {titles[1]} <Box color='primary.light' display='inline'>{titles[2]}</Box> {titles[3]}
+                </Typography>
+                <Typography variant='h5' align='center' color='inherit' sx={{ lineHeight: '40px' }}>
+                  {subtitles[0]}
+                </Typography>
+              </Stack>
+            </Box>
+            <Box
+              sx={{
+                position: 'relative',
+                opacity: 1,
+                p: { xs: 3, md: 6 },
+                mt: { xs: 12, md: 30 }
+              }}
+            >
+              <Stack
+                direction='column'
+                alignItems='center'
+                spacing={1.5}
+              >
+                <Typography variant='subtitle1' align='center' color='inherit'>
+                  {subheaders[0].toUpperCase()} <Box display='inline'>{subheaders[1]}</Box>
+                </Typography>
+                <Box textAlign='center'>
+                  <Button component={RouterLink} to={`/programs/${exampleProgKey}`} target='_blank' color='inherit' size='large' style={{ textTransform: 'none' }} variant='outlined'>
+                    Try Teamnova for free
+                  </Button>
+                </Box>
+                <Typography variant='subtitle2' align='center' color='inherit'>
                   {subheaders[2].toUpperCase()}
                 </Typography>
-                <Box textAlign='left' sx={{ p: 3 }} >
-                  <Button>Learn More</Button>
-                </Box>
               </Stack>
-            </Grid>
-          </Grid>
+            </Box>
+          </Box>
         </Box>
       </Paper>
       <Box
@@ -152,10 +176,103 @@ const HomePage = () => {
             <Box color='primary.dark' display='inline'>{titles[5]}</Box>
             {titles[6]}
             <Box color='primary.dark' display='inline'>{titles[7]}</Box>
-            {titles[3]}
+            {titles[8]}
           </Typography>
           <Typography variant='h6' align='center' color='inherit' sx={{ lineHeight: '40px' }}>
             {paragraphs[0]}
+          </Typography>
+        </Stack>
+        <Stack
+          direction='row'
+          spacing={2}
+          justifyContent='center'
+          sx={{ py: 2 }}
+        >
+          <Button size='large' variant='outlined'>Learn More</Button>
+          <Button component={RouterLink} to={`/programs/${exampleProgKey}`} target='_blank' size='large' variant='contained'>
+            Request A Demo
+          </Button>
+        </Stack>
+      </Box>
+      <Box
+        sx={{
+          position: 'relative',
+          bgcolor: '#12161A',
+          color: '#fff',
+          alignItems: 'center',
+          p: { xs: 3, md: 6 },
+          mt: 9
+        }}
+      >
+        <Stack
+          direction='column'
+          alignItems='center'
+          spacing={3}
+          justifyContent='space-evenly'
+        >
+          <Typography variant='subtitle1' color='primary.light'>
+            {subheaders[3].toUpperCase()}
+          </Typography>
+          <Typography variant='h4' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }} gutterBottom>
+            {titles[9]}
+          </Typography>
+          <Typography variant='h4' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }} gutterBottom>
+            <Box color='primary.light' display='inline'>{titles[10]}</Box> {titles[11]}
+          </Typography>
+        </Stack>
+      </Box>
+      <Box
+        sx={{
+          position: 'relative',
+          bgcolor: '#161A1F',
+          color: '#fff',
+          alignItems: 'center',
+          p: 6,
+          mb: 9
+        }}
+      >
+        <Card
+          sx={{ display: 'flex', flexDirection: 'row' }}
+        >
+          <CardContent sx={{ flex: 1, p: 6 }}>
+            <Stack
+              direction='column'
+              alignItems='center'
+              spacing={3}
+              justifyContent='space-evenly'
+            >
+              <Typography variant='h6' align='center' color='primary' sx={{ fontWeight: 'bold', lineHeight: '30px' }} >
+                {subtitles[1].toUpperCase()}
+              </Typography>
+              <Typography variant='subtitle1' align='center' color='inherit' gutterBottom>
+                {paragraphs[1]}
+              </Typography>
+              <Button component={RouterLink} to={'https://google.github.io/gsocguides/mentor/the-history-of-gsoc'} target='_blank' size='large' variant='outlined'>Learn More</Button>
+            </Stack>
+          </CardContent>
+          <CardMedia component='iframe' src='https://www.youtube.com/embed/S6IP_6HG2QE' style={{ width: '50%', height: 'auto', border: 'none' }} allow='autoPlay'/>
+        </Card>
+      </Box>
+      <Box
+        sx={{
+          position: 'relative',
+          alignItems: 'center',
+          p: { xs: 3, md: 8 }
+        }}
+      >
+        <Stack
+          direction='column'
+          spacing={6}
+          justifyContent='center'
+          sx={{ py: 3 }}
+        >
+          <Typography variant='h4' align='center' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '60px' }} gutterBottom>
+            {titles[12]}
+              <Box color='primary.dark' display='inline'>{titles[13]}</Box>
+            {titles[14]}
+          </Typography>
+          <Typography variant='h6' align='center' color='inherit' sx={{ lineHeight: '40px' }}>
+            {paragraphs[2]}
           </Typography>
         </Stack>
         <Stack
@@ -187,15 +304,44 @@ const HomePage = () => {
           justifyContent='space-evenly'
         >
           <Typography variant='subtitle1' color='primary.light'>
-            {subheaders[3].toUpperCase()}
+            {subheaders[2].toUpperCase()}
           </Typography>
           <Typography variant='h4' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }} gutterBottom>
-            {titles[8]}
-          </Typography>
-          <Typography variant='h4' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }} gutterBottom>
-            <Box color='primary.light' display='inline'>{titles[9]}</Box> {titles[3]}
+            {titles[15]}
           </Typography>
         </Stack>
+      </Box>
+      <Box
+        sx={{
+          position: 'relative',
+          bgcolor: '#161A1F',
+          color: '#fff',
+          alignItems: 'center',
+          p: 6,
+          mb: 9
+        }}
+      >
+        <Card
+          sx={{ display: 'flex', flexDirection: 'row' }}
+        >
+          <CardContent sx={{ flex: 1, p: 6 }}>
+            <Stack
+              direction='column'
+              alignItems='center'
+              spacing={3}
+              justifyContent='space-evenly'
+            >
+              <Typography variant='h6' align='center' color='primary.light'>
+                {subheaders[4].toUpperCase()}
+              </Typography>
+              <Typography variant='subtitle1' align='center' color='inherit' gutterBottom>
+                {paragraphs[0]}
+              </Typography>
+              <Button component={RouterLink} to={'https://google.github.io/gsocguides/mentor/the-history-of-gsoc'} target='_blank' size='large' variant='outlined'>Learn More</Button>
+            </Stack>
+          </CardContent>
+          <CardMedia component='iframe' src='https://www.youtube.com/embed/BQ3ZkyisjJs' style={{ width: '50%', height: 'auto', border: 'none' }} allow='autoPlay'/>
+        </Card>
       </Box>
       <Grid container sx={{ height: '60vh', my: 9 }}>
         <CssBaseline />
@@ -218,15 +364,15 @@ const HomePage = () => {
                 spacing={1.5}
                 justifyContent='space-evenly'
               >
-                <Typography variant='h2' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
-                  {titles[10]}
+                <Typography variant='h3' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
+                  {titles[16]}
                 </Typography>
-                <Typography variant='h2' color='primary' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
-                  {titles[11]}
+                <Typography variant='h3' color='primary' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
+                  {titles[17]}
                 </Typography>
               </Stack>
               <Typography variant='h5' color='inherit' sx={{ lineHeight: '30px' }}>
-                {subtitles[1]}
+                {subtitles[2]}
               </Typography>
             </Stack>
             <Button size='large'>Learn More</Button>
@@ -247,34 +393,61 @@ const HomePage = () => {
       <Box
         sx={{
           position: 'relative',
+          bgcolor: '#12161A',
+          color: '#fff',
           alignItems: 'center',
-          p: { xs: 3, md: 8 }
+          p: { xs: 3, md: 6 },
+          mt: 9
         }}
       >
         <Stack
           direction='column'
-          spacing={6}
-          justifyContent='center'
-          sx={{ py: 3 }}
+          alignItems='center'
+          spacing={3}
+          justifyContent='space-evenly'
         >
-          <Typography variant='h4' align='center' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '60px' }} gutterBottom>
-            {titles[12]}
+          <Typography variant='h3' color='primary' sx={{ fontWeight: 'bold', lineHeight: '50px' }} gutterBottom>
+            {titles[18]}
           </Typography>
-          <Typography variant='h6' align='center' color='inherit' sx={{ lineHeight: '40px' }}>
-            {paragraphs[1]}
-          </Typography>
+          <Stack
+            direction='column'
+            alignItems='center'
+            spacing={2}
+            justifyContent='space-evenly'
+          >
+            <Typography variant='h5' color='inherit'>
+              {subtitles[3]}
+            </Typography>
+          </Stack>
         </Stack>
-        <Stack
-          direction='row'
-          spacing={2}
-          justifyContent='center'
-          sx={{ py: 2 }}
+      </Box>
+      <Box
+        sx={{
+          position: 'relative',
+          bgcolor: '#161A1F',
+          color: '#fff',
+          alignItems: 'center',
+          p: 3,
+          pb: 9,
+          mb: 9
+        }}
+      >
+        <Box
+          sx={{
+            position: 'relative',
+            alignItems: 'center',
+            py: 1
+          }}
         >
-          <Button size='large' variant='outlined'>Learn More</Button>
-          <Button component={RouterLink} to={`/programs/${exampleProgKey}`} target='_blank' size='large' variant='contained'>
-            See a Live Demo
-          </Button>
-        </Stack>
+          <Typography variant='h5' align='center' color='inherit' gutterBottom>
+            {subtitles[4]}
+          </Typography>
+        </Box>
+        <Grid container spacing={2}>
+          {featuredTeams.map((team) => (
+            <TeamCard key={team.key} team={team} />
+          ))}
+        </Grid>
       </Box>
       <Grid container sx={{ height: '60vh', my: 9 }}>
         <CssBaseline />
@@ -308,80 +481,21 @@ const HomePage = () => {
                 spacing={1.5}
                 justifyContent='space-evenly'
               >
-                <Typography variant='h2' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
-                  {titles[13]}
+                <Typography variant='h3' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
+                  {titles[19]}
                 </Typography>
-                <Typography variant='h2' color='primary' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
-                  {titles[14]}
+                <Typography variant='h3' color='primary' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
+                  {titles[20]}
                 </Typography>
               </Stack>
               <Typography variant='h5' color='inherit' sx={{ lineHeight: '30px' }}>
-                {subtitles[2]}
+                {paragraphs[4]}
               </Typography>
             </Stack>
             <Button size='large'>Learn More</Button>
           </Box>
         </Grid>
       </Grid>
-      <Box
-        sx={{
-          position: 'relative',
-          bgcolor: '#12161A',
-          color: '#fff',
-          alignItems: 'center',
-          p: { xs: 3, md: 6 },
-          mt: 9
-        }}
-      >
-        <Stack
-          direction='column'
-          alignItems='center'
-          spacing={3}
-          justifyContent='space-evenly'
-        >
-          <Typography variant='h3' color='primary' sx={{ fontWeight: 'bold', lineHeight: '50px' }} gutterBottom>
-            {titles[15]}
-          </Typography>
-          <Stack
-            direction='column'
-            alignItems='center'
-            spacing={2}
-            justifyContent='space-evenly'
-          >
-            <Typography variant='h5' color='inherit'>
-              {subtitles[3]}
-            </Typography>
-          </Stack>
-        </Stack>
-      </Box>
-      <Box
-        sx={{
-          position: 'relative',
-          bgcolor: '#161A1F',
-          color: '#fff',
-          alignItems: 'center',
-          p: 3,
-          pb: 9,
-          mb: 9
-        }}
-      >
-        <Box
-          sx={{
-            position: 'relative',
-            alignItems: 'center',
-            py: 1
-          }}
-        >
-          <Typography variant='h5' align='center' color='inherit' gutterBottom>
-            {subtitles[5]}
-          </Typography>
-        </Box>
-        <Grid container spacing={2}>
-          {featuredTeams.map((team) => (
-            <TeamCard key={team.key} team={team} />
-          ))}
-        </Grid>
-      </Box>
     </Container>
   )
 }
