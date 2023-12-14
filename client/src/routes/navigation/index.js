@@ -29,7 +29,7 @@ const Navigation = () => {
           </Button>
         </Stack>
         <Button component={RouterLink} to={`/programs/${exampleProgKey}`} style={{ textTransform: 'none' }} variant='contained'>
-          Request A Demo
+          Request A Full Demo
         </Button>
       </Toolbar>
       <Outlet />

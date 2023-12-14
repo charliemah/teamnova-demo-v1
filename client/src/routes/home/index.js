@@ -33,7 +33,7 @@ const titles = [
   'We leverage open source to help universities and employers ',
   'bridge the skills gap between education and work',
   '.',
-  'Mentorship programs in open source are critical for the growth and development of the open source community, and the LFX Mentorship program is no exception.',
+  '"Mentorship programs in open source are critical for the growth and development of the open source community, and the LFX Mentorship program is no exception."',
   'Why',
   'Mentoring at Scale?',
   'Collaborative Learning Over Code',
@@ -57,11 +57,17 @@ const subheaders = [
 ]
 
 const paragraphs = [
-  'Teamnova is an A.Team-like online platform for mentorship in open source. The primary purpose of this open source project is to help university students cope with the challenges in the current tight hiring climate by working on exciting open source projects.',
-  '"Google Summer of Code began in 2005 as a complex experiment with a simple goal: helping students find work related to their academic pursuits during their school holidays. Larry Page, one of Google\'s co-founders, was pondering the age-old problem of scholastic backsliding ..."',
-  'Why not create a new platform where mentors can help mentees improve both the hard and soft skills required for open source?',
+  'Most large open source projects are keen to offer students high-quality Work-Integrated Learning opportunities for social good, even though they recognize that the likelihood of students becoming regular contributors might be lower than expected. However, scaling experienced mentors, particularly those in maintainer roles, presents a challenge, and successfully sustaining high-quality mentorship on a large scale is even more difficult.',
+  '"The first pass on Summer of Code was only going to have 200 students, and Larry Page, in his inevitable way said, "That\'s nice. But what about 1000 students?" I\'m said, "Unfortunately, I\'m only one guy." He\'s like, "Why don\'t you hire somebody?" So, we doubled it to 400. We were at 1000 in about two years."',
+  'Teamnova open source project wants to work with partners to help solve this problem through innovative team mentoring and collaborative learning solutions, aiming to empower large open-source projects to sustain high-quality mentorship at scale.Together, let\'s work towards a better future by exposing more students to real-world software development while also helping them in developing a growth mindset.',
+  '"Mentors can share their knowledge and experience with mentees, helping them develop the skills and knowledge they need to succeed in the open source community. Mentees, on the other hand, can learn from experienced professionals, gaining valuable insights and advice that they can use to advance their careers."',
   'Google Summer of Code (GSoC), as one of the most prestigious open source mentorship programs, is highly competitive. According to 2023 statistics, out of 43,765 applicants and 7,723 proposals submitted, only 967 GSoC contributors were accepted.',
-  'We help mentors and mentees maximize the benefits of collaborative learning within self-organizing teams.'
+  'While traditional open source mentorship programs are excellent, they often lack a structured approach that allows mentors and mentees to maximize the benefits of collaborative learning. Why not create a new platform where mentors can help mentees improve both the hard and soft skills required in open source? This thinking led to the idea of the \'Self-organizing Team\' structure.'
+]
+
+const links = [
+  'https://news.slashdot.org/story/12/10/17/1459241/the-growth-of-google-summer-of-code',
+  'https://www.linuxfoundation.org/blog/why-we-need-open-source-mentorship-programs-at-the-linux-foundation'
 ]
 
 const HomePage = () => {
@@ -90,7 +96,8 @@ const HomePage = () => {
           sx={{
             position: 'relative',
             alignItems: 'center',
-            mx: 12
+            mx: 9,
+            mb: 9
           }}
         >
           <Box
@@ -162,7 +169,7 @@ const HomePage = () => {
         sx={{
           position: 'relative',
           alignItems: 'center',
-          p: { xs: 3, md: 8 }
+          p: { xs: 3, md: 6 }
         }}
       >
         <Stack
@@ -178,7 +185,7 @@ const HomePage = () => {
             <Box color='primary.dark' display='inline'>{titles[7]}</Box>
             {titles[8]}
           </Typography>
-          <Typography variant='h6' align='center' color='inherit' sx={{ lineHeight: '40px' }}>
+          <Typography variant='body1' color='inherit' paragraph>
             {paragraphs[0]}
           </Typography>
         </Stack>
@@ -190,7 +197,7 @@ const HomePage = () => {
         >
           <Button size='large' variant='outlined'>Learn More</Button>
           <Button component={RouterLink} to={`/programs/${exampleProgKey}`} target='_blank' size='large' variant='contained'>
-            Request A Demo
+            Request A Full Demo
           </Button>
         </Stack>
       </Box>
@@ -238,16 +245,16 @@ const HomePage = () => {
             <Stack
               direction='column'
               alignItems='center'
-              spacing={3}
+              spacing={1.5}
               justifyContent='space-evenly'
             >
-              <Typography variant='h6' align='center' color='primary' sx={{ fontWeight: 'bold', lineHeight: '30px' }} >
+              <Typography variant='subtitle1' align='center' color='primary.dark' sx={{ fontWeight: 'bold', lineHeight: '30px' }} >
                 {subtitles[1].toUpperCase()}
               </Typography>
-              <Typography variant='subtitle1' align='center' color='inherit' gutterBottom>
+              <Typography variant='body1' gutterBottom paragraph>
                 {paragraphs[1]}
               </Typography>
-              <Button component={RouterLink} to={'https://google.github.io/gsocguides/mentor/the-history-of-gsoc'} target='_blank' size='large' variant='outlined'>Learn More</Button>
+              <Button component={RouterLink} to={links[0]} target='_blank'>Learn More</Button>
             </Stack>
           </CardContent>
           <CardMedia component='iframe' src='https://www.youtube.com/embed/S6IP_6HG2QE' style={{ width: '50%', height: 'auto', border: 'none' }} allow='autoPlay'/>
@@ -257,7 +264,7 @@ const HomePage = () => {
         sx={{
           position: 'relative',
           alignItems: 'center',
-          p: { xs: 3, md: 8 }
+          p: { xs: 3, md: 6 }
         }}
       >
         <Stack
@@ -271,7 +278,7 @@ const HomePage = () => {
               <Box color='primary.dark' display='inline'>{titles[13]}</Box>
             {titles[14]}
           </Typography>
-          <Typography variant='h6' align='center' color='inherit' sx={{ lineHeight: '40px' }}>
+          <Typography variant='body1' color='inherit' paragraph>
             {paragraphs[2]}
           </Typography>
         </Stack>
@@ -283,7 +290,7 @@ const HomePage = () => {
         >
           <Button size='large' variant='outlined'>Learn More</Button>
           <Button component={RouterLink} to={`/programs/${exampleProgKey}`} target='_blank' size='large' variant='contained'>
-            See a Live Demo
+            Request A Full Demo
           </Button>
         </Stack>
       </Box>
@@ -304,9 +311,9 @@ const HomePage = () => {
           justifyContent='space-evenly'
         >
           <Typography variant='subtitle1' color='primary.light'>
-            {subheaders[2].toUpperCase()}
+            {subheaders[4].toUpperCase()}
           </Typography>
-          <Typography variant='h4' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }} gutterBottom>
+          <Typography variant='h5' align='center' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }} gutterBottom>
             {titles[15]}
           </Typography>
         </Stack>
@@ -328,16 +335,16 @@ const HomePage = () => {
             <Stack
               direction='column'
               alignItems='center'
-              spacing={3}
+              spacing={1.5}
               justifyContent='space-evenly'
             >
-              <Typography variant='h6' align='center' color='primary.light'>
-                {subheaders[4].toUpperCase()}
+              <Typography variant='subtitle1' align='center' color='primary.dark' sx={{ fontWeight: 'bold', lineHeight: '30px' }} >
+                {subtitles[2].toUpperCase()}
               </Typography>
-              <Typography variant='subtitle1' align='center' color='inherit' gutterBottom>
-                {paragraphs[0]}
+              <Typography variant='body1' gutterBottom paragraph>
+                {paragraphs[3]}
               </Typography>
-              <Button component={RouterLink} to={'https://google.github.io/gsocguides/mentor/the-history-of-gsoc'} target='_blank' size='large' variant='outlined'>Learn More</Button>
+              <Button component={RouterLink} to={links[1]} target='_blank'>Learn More</Button>
             </Stack>
           </CardContent>
           <CardMedia component='iframe' src='https://www.youtube.com/embed/BQ3ZkyisjJs' style={{ width: '50%', height: 'auto', border: 'none' }} allow='autoPlay'/>
@@ -364,15 +371,15 @@ const HomePage = () => {
                 spacing={1.5}
                 justifyContent='space-evenly'
               >
-                <Typography variant='h3' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
+                <Typography variant='h4' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '30px' }}>
                   {titles[16]}
                 </Typography>
-                <Typography variant='h3' color='primary' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
+                <Typography variant='h4' color='primary' sx={{ fontWeight: 'bold', lineHeight: '30px' }}>
                   {titles[17]}
                 </Typography>
               </Stack>
-              <Typography variant='h5' color='inherit' sx={{ lineHeight: '30px' }}>
-                {subtitles[2]}
+              <Typography variant='body1' color='inherit' paragraph>
+                {paragraphs[4]}
               </Typography>
             </Stack>
             <Button size='large'>Learn More</Button>
@@ -467,7 +474,7 @@ const HomePage = () => {
             sx={{
               position: 'relative',
               alignItems: 'center',
-              p: { xs: 3, md: 8 }
+              p: { xs: 3, md: 6 }
             }}
           >
             <Stack
@@ -481,15 +488,15 @@ const HomePage = () => {
                 spacing={1.5}
                 justifyContent='space-evenly'
               >
-                <Typography variant='h3' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
+                <Typography variant='h4' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '30px' }}>
                   {titles[19]}
                 </Typography>
-                <Typography variant='h3' color='primary' sx={{ fontWeight: 'bold', lineHeight: '50px' }}>
+                <Typography variant='h4' color='primary' sx={{ fontWeight: 'bold', lineHeight: '30px' }}>
                   {titles[20]}
                 </Typography>
               </Stack>
-              <Typography variant='h5' color='inherit' sx={{ lineHeight: '30px' }}>
-                {paragraphs[4]}
+              <Typography variant='body1' color='inherit' paragraph>
+                {paragraphs[5]}
               </Typography>
             </Stack>
             <Button size='large'>Learn More</Button>
