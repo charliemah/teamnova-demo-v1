@@ -7,6 +7,8 @@ import { exampleProgKey } from './config'
 
 const Navigation = lazy(() => import('./routes/navigation'))
 const HomePage = lazy(() => import('./routes/home'))
+const AboutPage = lazy(() => import('./routes/about'))
+const DiscoverPage = lazy(() => import('./routes/discover'))
 const ProgramsRouter = lazy(() => import('./routes/programs'))
 const TeamsRouter = lazy(() => import('./routes/teams'))
 
@@ -26,6 +28,8 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Navigation />}>
           <Route index element={<HomePage />} />
+          <Route path='about' element={<AboutPage />} />
+          <Route path='discover' element={<DiscoverPage />} />
           <Route path='programs/*' element={<ProgramsRouter />} />
           <Route path='teams/*' element={<TeamsRouter />} />
           <Route path='*' element={<Navigate to='/' />} />

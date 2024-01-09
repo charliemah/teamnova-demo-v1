@@ -2,6 +2,43 @@ import axios from 'axios'
 
 import { baseUrl } from '../config'
 
+export const user = {
+  state: {
+    isSignedIn: false,
+    userId: '',
+    email: '',
+    accountType: '',
+    token: ''
+  },
+  reducers: {
+    setCurrentUser (state, payload) {
+      return {
+        ...state,
+        isSignedIn: true,
+        ...payload
+      }
+    },
+    signOutUser () {
+      return {
+        userId: '',
+        email: '',
+        accountType: '',
+        token: ''
+      }
+    }
+  },
+  effects: dispatch => ({
+    async asyncSignUp (payload) {
+      const response = await axios.post(`${baseUrl}/api/v1/auth/signup`, payload)
+      dispatch.user.setCurrentUser(response.data)
+    },
+    async asyncSignIn (payload) {
+      const response = await axios.post(`${baseUrl}/api/v1/auth/signin`, payload)
+      dispatch.user.setCurrentUser(response.data)
+    }
+  })
+}
+
 export const programs = {
   state: {
     programList: []
