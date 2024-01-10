@@ -39,8 +39,11 @@ const Navigation = () => {
           <Button component={RouterLink} to={'/about'} style={{ textTransform: 'none' }} color='inherit'>
             About
           </Button>
+          <Button component={RouterLink} to={'/'} style={{ textTransform: 'none' }} color='inherit'>
+            Demo Gallery
+          </Button>
           <Button component={RouterLink} to={'/discover'} style={{ textTransform: 'none' }} color='inherit'>
-            Discover
+            Co-Creation Lab
           </Button>
         </Stack>
         <Stack
@@ -64,7 +67,7 @@ const Navigation = () => {
                 Sign in
               </Button>)
           }
-          <Button component={RouterLink} to={'/'} style={{ textTransform: 'none' }} variant='contained'>
+          <Button component={RouterLink} to={'/discover'} style={{ textTransform: 'none' }} variant='contained'>
             Start Building
           </Button>
         </Stack>

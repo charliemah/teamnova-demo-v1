@@ -19,10 +19,8 @@ const titles = [
   'through ',
   'mentoring at scale',
   '.',
-  'We empower ',
-  'large open source projects ',
-  'with highly flexible software-powered solutions for ',
-  'high-quality mentorship at scale',
+  'We empower large open source projects with highly flexible software-powered solutions for ',
+  'innovative team mentorship at scale',
   '.',
   'Collaborative Learning Over Code',
   'Why',
@@ -49,8 +47,9 @@ const subheaders = [
 ]
 
 const paragraphs = [
+  'Most large open source projects are keen to offer students high-quality Work-Integrated Learning opportunities for social good, even though they recognize that the likelihood of students becoming regular contributors might be lower than expected. However, scaling experienced mentors, particularly those in maintainer roles, presents a challenge, and successfully sustaining high-quality mentorship on a large scale is even more difficult.',
   'Google Summer of Code (GSoC), as one of the most prestigious open source mentorship programs, is highly competitive. According to 2023 statistics, out of 43,765 applicants and 7,723 proposals submitted, only 967 GSoC contributors were accepted.',
-  'While traditional open source mentorship programs are excellent, they often lack a structured approach that allows mentors and mentees to maximize the benefits of collaborative learning. Why not create a new platform where mentors can help mentees improve both the hard and soft skills required in open source? This thinking led to the idea of the \'Self-organizing Team\' structure.',
+  'While traditional open source mentorship programs are excellent, they often lack a structured approach that allows mentors and mentees to maximize the benefits of collaborative learning. Additionally, the \'Self-organizing Team\' structure is designed to significantly streamline administrative tasks, thereby reducing the time burden on maintainers and reviewers.',
   'Teamnova open source project wants to work with partners to help solve this problem through innovative team mentoring and collaborative learning solutions, aiming to empower large open-source projects to sustain high-quality mentorship at scale.Together, let\'s work towards a better future by exposing more students to real-world software development while also helping them in developing a growth mindset.'
 ]
 
@@ -118,7 +117,7 @@ const HomePage = () => {
                   {subtitles[0]}
                 </Typography>
                 <Box textAlign='center'>
-                  <Button component={RouterLink} to={'/about'} size='large' style={{ textTransform: 'none' }} variant='contained'>
+                  <Button component={RouterLink} to={'/discover'} size='large' style={{ textTransform: 'none' }} variant='contained'>
                     Start Building
                   </Button>
                 </Box>
@@ -165,8 +164,6 @@ const HomePage = () => {
             {titles[4]}
             <Box color='primary.dark' display='inline'>{titles[5]}</Box>
             {titles[6]}
-            <Box color='primary.dark' display='inline'>{titles[7]}</Box>
-            {titles[8]}
           </Typography>
           <Typography variant='body1' color='inherit' paragraph>
             {paragraphs[0]}
@@ -201,7 +198,7 @@ const HomePage = () => {
           justifyContent='space-evenly'
         >
           <Typography variant='h3' color='primary.light' sx={{ fontWeight: 'bold', lineHeight: '50px' }} gutterBottom>
-            {titles[9]}
+            {titles[7]}
           </Typography>
           <Stack
             direction='column'
@@ -265,14 +262,14 @@ const HomePage = () => {
                 justifyContent='space-evenly'
               >
                 <Typography variant='h4' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '30px' }}>
-                  {titles[10]}
+                  {titles[8]}
                 </Typography>
                 <Typography variant='h4' color='primary' sx={{ fontWeight: 'bold', lineHeight: '30px' }}>
-                  {titles[11]}
+                  {titles[9]}
                 </Typography>
               </Stack>
               <Typography variant='body1' color='inherit' paragraph>
-                {paragraphs[0]}
+                {paragraphs[1]}
               </Typography>
             </Stack>
             <Button size='large'>Learn More</Button>
@@ -323,14 +320,14 @@ const HomePage = () => {
                 justifyContent='space-evenly'
               >
                 <Typography variant='h4' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '30px' }}>
-                  {titles[12]}
+                  {titles[10]}
                 </Typography>
                 <Typography variant='h4' color='primary' sx={{ fontWeight: 'bold', lineHeight: '30px' }}>
-                  {titles[13]}
+                  {titles[11]}
                 </Typography>
               </Stack>
               <Typography variant='body1' color='inherit' paragraph>
-                {paragraphs[1]}
+                {paragraphs[2]}
               </Typography>
             </Stack>
             <Button size='large'>Learn More</Button>
@@ -353,12 +350,12 @@ const HomePage = () => {
           sx={{ mx: 12, py: 3 }}
         >
           <Typography variant='h4' align='center' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '60px' }} gutterBottom>
+            {titles[12]}
+              <Box color='primary.light' display='inline'>{titles[13]}</Box>
             {titles[14]}
-              <Box color='primary.light' display='inline'>{titles[15]}</Box>
-            {titles[16]}
           </Typography>
           <Typography variant='body1' color='inherit' paragraph>
-            {paragraphs[2]}
+            {paragraphs[3]}
           </Typography>
         </Stack>
         <Stack
