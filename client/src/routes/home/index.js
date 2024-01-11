@@ -68,6 +68,7 @@ const HomePage = () => {
           position: 'relative',
           backgroundColor: 'grey.800',
           color: '#fff',
+          borderRadius: '8px',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center 70%',
@@ -98,6 +99,7 @@ const HomePage = () => {
                 bgcolor: '#12161A',
                 color: '#fff',
                 opacity: 0.95,
+                borderRadius: 4,
                 py: 6,
                 my: 12
               }}
@@ -187,6 +189,7 @@ const HomePage = () => {
           bgcolor: '#12161A',
           color: '#fff',
           alignItems: 'center',
+          borderRadius: '8px 8px 0 0',
           p: { xs: 3, md: 6 },
           mt: 9
         }}
@@ -218,6 +221,7 @@ const HomePage = () => {
           bgcolor: '#161A1F',
           color: '#fff',
           alignItems: 'center',
+          borderRadius: '0 0 8px 8px',
           p: 3,
           pb: 9,
           mb: 9
@@ -280,6 +284,7 @@ const HomePage = () => {
           xs={false}
           md={5}
           sx={{
+            borderRadius: '8px',
             backgroundImage: `url(${backgroundImageUrl2})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
@@ -294,6 +299,7 @@ const HomePage = () => {
           xs={false}
           md={5}
           sx={{
+            borderRadius: '8px',
             backgroundImage: `url(${backgroundImageUrl3})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
@@ -340,6 +346,7 @@ const HomePage = () => {
           bgcolor: '#12161A',
           color: '#fff',
           alignItems: 'center',
+          borderRadius: '8px',
           p: { xs: 3, md: 6 }
         }}
       >
