@@ -62,7 +62,7 @@ const HomePage = () => {
   const featuredTeams = useSelector(state => state.teams.teamList.slice(0, 3))
 
   return (
-    <Container maxWidth='lg' disableGutters>
+    <Container maxWidth='xl' disableGutters>
       <Paper
         sx={{
           position: 'relative',
@@ -80,7 +80,7 @@ const HomePage = () => {
           sx={{
             position: 'relative',
             alignItems: 'center',
-            m: 9
+            m: { xs: 3, md: 6 }
           }}
         >
           <Box
@@ -160,7 +160,10 @@ const HomePage = () => {
           direction='column'
           spacing={6}
           justifyContent='center'
-          sx={{ mx: 12, py: 3 }}
+          sx={{
+            mx: { xs: 3, md: 12 },
+            py: 3
+          }}
         >
           <Typography variant='h4' align='center' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '60px' }} gutterBottom>
             {titles[4]}
@@ -354,7 +357,10 @@ const HomePage = () => {
           direction='column'
           spacing={6}
           justifyContent='center'
-          sx={{ mx: 12, py: 3 }}
+          sx={{
+            mx: { xs: 3, md: 12 },
+            py: 3
+          }}
         >
           <Typography variant='h4' align='center' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '60px' }} gutterBottom>
             {titles[12]}
