@@ -119,7 +119,7 @@ const HomePage = () => {
                   {subtitles[0]}
                 </Typography>
                 <Box textAlign='center'>
-                  <Button component={RouterLink} to={'/discover'} size='large' style={{ textTransform: 'none' }} variant='contained'>
+                  <Button component={RouterLink} to={'/discover'} size='large' style={{ textTransform: 'none', fontWeight: 'bold', lineHeight: '32px', borderRadius: 32 }} variant='contained'>
                     Start Building
                   </Button>
                 </Box>
@@ -153,38 +153,40 @@ const HomePage = () => {
         sx={{
           position: 'relative',
           alignItems: 'center',
+          justifyContent: 'center',
           p: { xs: 3, md: 6 }
         }}
       >
-        <Stack
-          direction='column'
-          spacing={6}
-          justifyContent='center'
-          sx={{
-            mx: { xs: 3, md: 12 },
-            py: 3
-          }}
-        >
-          <Typography variant='h4' align='center' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '60px' }} gutterBottom>
-            {titles[4]}
-            <Box color='primary.dark' display='inline'>{titles[5]}</Box>
-            {titles[6]}
-          </Typography>
-          <Typography variant='body1' color='inherit' paragraph>
-            {paragraphs[0]}
-          </Typography>
-        </Stack>
-        <Stack
-          direction='row'
-          spacing={2}
-          justifyContent='center'
-          sx={{ py: 2 }}
-        >
-          <Button component={RouterLink} to={'/discover'} size='large' variant='outlined'>Learn More</Button>
-          <Button component={RouterLink} to={`/programs/${exampleProgKey}`} target='_blank' size='large' variant='contained'>
-            Try Teamnova for free
-          </Button>
-        </Stack>
+        <Container maxWidth='md'>
+          <Stack
+            direction='column'
+            spacing={6}
+            justifyContent='center'
+            sx={{
+              py: 3
+            }}
+          >
+            <Typography variant='h4' align='center' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '60px' }} gutterBottom>
+              {titles[4]}
+              <Box color='primary.dark' display='inline'>{titles[5]}</Box>
+              {titles[6]}
+            </Typography>
+            <Typography variant='body1' color='inherit' paragraph>
+              {paragraphs[0]}
+            </Typography>
+          </Stack>
+          <Stack
+            direction='row'
+            spacing={2}
+            justifyContent='center'
+            sx={{ py: 2 }}
+          >
+            <Button component={RouterLink} to={'/discover'} size='large' style={{ textTransform: 'none', borderRadius: 8 }} variant='outlined'>Learn More</Button>
+            <Button component={RouterLink} to={`/programs/${exampleProgKey}`} target='_blank' size='large' style={{ textTransform: 'none', borderRadius: 8 }} variant='contained'>
+              Try Teamnova for free
+            </Button>
+          </Stack>
+        </Container>
       </Box>
       <Box
         sx={{
@@ -279,7 +281,7 @@ const HomePage = () => {
                 {paragraphs[1]}
               </Typography>
             </Stack>
-            <Button size='large'>Learn More</Button>
+            <Button size='large' style={{ textTransform: 'none' }} >Learn More</Button>
           </Box>
         </Grid>
         <Grid
@@ -339,7 +341,7 @@ const HomePage = () => {
                 {paragraphs[2]}
               </Typography>
             </Stack>
-            <Button size='large'>Learn More</Button>
+            <Button size='large' style={{ textTransform: 'none' }} >Learn More</Button>
           </Box>
         </Grid>
       </Grid>
@@ -353,32 +355,33 @@ const HomePage = () => {
           p: { xs: 3, md: 6 }
         }}
       >
-        <Stack
-          direction='column'
-          spacing={6}
-          justifyContent='center'
-          sx={{
-            mx: { xs: 3, md: 12 },
-            py: 3
-          }}
-        >
-          <Typography variant='h4' align='center' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '60px' }} gutterBottom>
-            {titles[12]}
-              <Box color='primary.light' display='inline'>{titles[13]}</Box>
-            {titles[14]}
-          </Typography>
-          <Typography variant='body1' color='inherit' paragraph>
-            {paragraphs[3]}
-          </Typography>
-        </Stack>
+        <Container maxWidth='md'>
+          <Stack
+            direction='column'
+            spacing={6}
+            justifyContent='center'
+            sx={{
+              py: 3
+            }}
+          >
+            <Typography variant='h4' align='center' color='inherit' sx={{ fontWeight: 'bold', lineHeight: '60px' }} gutterBottom>
+              {titles[12]}
+                <Box color='primary.light' display='inline'>{titles[13]}</Box>
+              {titles[14]}
+            </Typography>
+            <Typography variant='body1' color='inherit' paragraph>
+              {paragraphs[3]}
+            </Typography>
+          </Stack>
+        </Container>
         <Stack
           direction='row'
           spacing={2}
           justifyContent='center'
           sx={{ py: 2 }}
         >
-          <Button component={RouterLink} to={'/discover'} size='large' variant='outlined'>Learn More</Button>
-          <Button component={RouterLink} to={`/programs/${exampleProgKey}`} target='_blank' size='large' variant='contained'>
+          <Button component={RouterLink} to={'/discover'} size='large' style={{ textTransform: 'none', borderRadius: 8 }} variant='outlined'>Learn More</Button>
+          <Button component={RouterLink} to={`/programs/${exampleProgKey}`} target='_blank' size='large' style={{ textTransform: 'none', borderRadius: 8 }} variant='contained'>
             Try Teamnova for free
           </Button>
         </Stack>

@@ -67,7 +67,7 @@ const Navigation = () => {
                 Sign in
               </Button>)
           }
-          <Button component={RouterLink} to={'/discover'} style={{ textTransform: 'none' }} variant='contained'>
+          <Button component={RouterLink} to={'/discover'} style={{ textTransform: 'none', borderRadius: 8 }} variant='contained'>
             Start Building
           </Button>
         </Stack>

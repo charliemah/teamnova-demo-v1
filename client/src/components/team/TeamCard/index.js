@@ -21,7 +21,7 @@ const TeamCard = ({ team }) => {
   return (
     <Grid item xs={12} sm={6} md={4}>
       <Card
-        sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+        sx={{ height: '100%', display: 'flex', flexDirection: 'column', borderRadius: 4 }}
       >
         <CardHeader
           disableTypography
@@ -94,7 +94,7 @@ const TeamCard = ({ team }) => {
             pb: 3
           }}
         >
-          <Button component={RouterLink} to={`/teams/${team.key}`} target='_blank' variant='contained'>Meet the Team</Button>
+          <Button component={RouterLink} to={`/teams/${team.key}`} target='_blank' style={{ textTransform: 'none', fontWeight: 'bold', lineHeight: '32px', borderRadius: 32 }} variant='contained'>Meet the Team</Button>
         </CardActions>
       </Card>
     </Grid>
